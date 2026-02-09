@@ -37,6 +37,7 @@ An Admin UI app (Flask/Django/FastAPI) stores content and metadata in PostgreSQL
 - Stable content that benefits from CDN performance and low hosting cost.
 - Clear separation between editorial tooling and public delivery mechanism.
 - Reduced attack surface area.
+- 
 **Trade-offs**
 - Publishing waits for build runs and orchestration adds operational complexity.
 - Running and maintaining the Admin UI application brings operational costs similar to Option 3 for the editorial side, while still relying on the static delivery model for the public site.
