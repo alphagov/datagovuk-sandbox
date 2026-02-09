@@ -60,7 +60,7 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - **Automation for data and URL checks**: Use automation to validate URLs, fetch and transform small data extracts for visualisations. Keep this lean so it supports the site without becoming a major platform in its own right.
 - **Background jobs**: Use scheduled workflows (GitHub Actions in Option 1) or Redis-backed queues (RQ/ARQ in Options 2/3) for URL checks and data refresh. Graduate to heavier orchestration only if needed.
 - **Hosting**: All options benefit from CDN fronting. Option 1 can be just S3 + CloudFront. Option 2 adds a small Admin UI service (ECS/Fargate, App Runner or Elastic Beanstalk). Option 3 needs a full application tier (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL.
-- **Previews**: Option 1 requires deployment to a staging environment to fully preview rendered pages. Options 2 and 3 can provide in-app previews within the Admin UI.
+- **Previews**: Option 1 requires deployment to a staging environment to fully preview rendered pages. Options 2 and 3 can provide in application page previews within the Admin UI.
 
 ## Tech notes
 - **Framework choice**: Django (without Wagtail) plus its task system offers a batteries-included route. Wagtail is a capable, mature and well supported CMS but may be heavier than needed for a narrow content model and small team. Flask remains attractive for a lightweight Admin UI if we value minimal surface area - pair it with RQ for background work. FastAPI is also a possible choice.
