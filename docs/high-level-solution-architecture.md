@@ -44,7 +44,7 @@ An Admin UI app (Flask/Django/FastAPI) stores content and metadata in PostgreSQL
 - Content lives in a database rather than in version-controlled files, so database backup and content recovery become concerns (in Option 1, Git serves as the backup and audit trail).
 
 ## Option 3 – Admin UI + server side rendering
-A single web app handles Admin UI editing and public page rendering, with background workers running alongside it. Editors publish markdown straight from the admin; visitors request pages from the same app (server-side templates). The web app schedules/enqueues jobs to Redis - workers fetch/transform external data sources and store results in PostgreSQL.
+A single web app handles Admin UI editing and public page rendering, with background workers running alongside it. Editors can edit and view content directly in a single application. Visitors request pages from the same app. The web app schedules/enqueues jobs to Redis - workers check published URLs as well as fetch/transform external data sources and store results in PostgreSQL.
 
 **Benefits**
 - Fast iteration: one deploy updates the Admin UI, public views, and data processors.
@@ -52,7 +52,7 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - Good stepping stone for additional functionality.
 
 **Trade-offs**
-- Always-on runtime requires ongoing operational investment — maintaining uptime, patching, and monitoring — compared to static hosting.
+- Always-on runtime requires ongoing operational commitment, maintaining uptime, patching, and monitoring compared to static hosting.
 - Requires stricter hardening because the public application and admin application are the same stack.
 
 ## Cross-cutting considerations
