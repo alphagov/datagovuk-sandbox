@@ -7,6 +7,8 @@ Diagrams showing the functional structure is here: [high-level-solution-architec
 > [!IMPORTANT]
 > Out of scope in this document is any discussion of existing Find app (rails user facing front end) or CKAN instance for existing data.gov.uk datasets. The assumption is that
 > they will continue to run and therefore support `/datasets/*` URL paths for now. The future place of CKAN in the overall solution can be reviewed, discussed elsewhere.
+>
+> Also the assumption is that the deployment target for any public facing website/application will be on NDL owned AWS, **not** within the existing GDS estate.
 
 ## Goals
 - Provide a manageable editorial workflow for markdown/structured content, with previews where possible.
