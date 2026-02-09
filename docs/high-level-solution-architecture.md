@@ -4,6 +4,10 @@ This note summarises three viable options for future iteration of curated datase
 
 Diagrams showing the functional structure is here: [high-level-solution-architecture-diagrams.md](high-level-solution-architecture-diagrams.md)
 
+> [!IMPORTANT]
+> Out of scope in this document is any discussion of existing Find app (rails user facing front end) or CKAN instance for existing data.gov.uk datasets. The assumption is that
+> they will continue to run and therefore support `/datasets/*` URL paths.
+
 ## Goals
 - Provide a manageable editorial workflow for markdown/structured content, with previews where possible.
 - Support background validation (e.g. checking of URLs) and data refresh jobs with configurable cadences.
