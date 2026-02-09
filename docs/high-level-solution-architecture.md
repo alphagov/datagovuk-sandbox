@@ -6,7 +6,7 @@ Diagrams showing the functional structure is here: [high-level-solution-architec
 
 > [!IMPORTANT]
 > Out of scope in this document is any discussion of existing Find app (rails user facing front end) or CKAN instance for existing data.gov.uk datasets. The assumption is that
-> they will continue to run and therefore support `/datasets/*` URL paths. The future place of this part of the solution can be reviewed, discussed elsewhere.
+> they will continue to run and therefore support `/datasets/*` URL paths for now. The future place of this part of the solution can be reviewed, discussed elsewhere.
 
 ## Goals
 - Provide a manageable editorial workflow for markdown/structured content, with previews where possible.
