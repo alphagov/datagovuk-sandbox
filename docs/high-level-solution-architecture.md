@@ -89,12 +89,16 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 > Search is a more complex question in that it would mean running an indexing service and a search service callable from the static site. Both could interact with an AWS managed search index such as AWS OpenSearch. We could use AWS Lamdba to ingest data into search index. Lambda could also be used (accessible via API Gateway) to execute search on client request and return results.
 >
 > Importantly in order to support users with JS diabled, the search service, whether using Lambda or a longer running service, should be able to return results as HTML not just JSON.
->
 
-## Concluding recommendation
+
+## Recommendations
 
 For an effective starting point, **Option 1 (GitHub managed static site)** is recommended. This approach offers the lowest operational cost and complexity, leveraging Git based workflows for content management, build and deployment. It allows the team to focus on establishing a suitable content structure and reliable maintenance, validation and data processing pipelines without the overhead of maintaining more elaborate application architecture and infrastructure.
 
 Importantly, this choice doesn't preclude future evolution. The architecture provides a coherent migration path to **Option 2** by developing an Admin UI whose workers would take over the role of generating the static site. Similarly, the content and data transformation scripts can be readily adapted for **Option 3** if a fully dynamic, server rendered application becomes necessary. However, migration is not zero-cost: moving from Option 1 to Option 2 or 3 means shifting from "files as source of truth" to "database as source of truth", which requires content migration and changes to how content is authored and managed.
 
 By beginning with a simple, file based source of truth, the project remains easy to understand and is well positioned to scale its infrastructure and functionality in line with future requirements.
+
+## What factors would drive option upgrade
+
+TODO
