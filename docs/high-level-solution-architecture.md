@@ -85,7 +85,7 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 > 
 > Redirects could be handled by Cloudfront functions and Cloudfront key value store. Lamda@Edge would also a possibility, but final approach can be discussed.
 >     
-> Search is a more complex question in that it would mean running an indexing service and a search service callable from the static. Both could interact with an AWS managed search index such as AWS OpenSearch. We could use AWS Lamdba to ingest data into search index. Lambda could also be used (accessible via API Gateway) to execute search on client request and return results.
+> Search is a more complex question in that it would mean running an indexing service and a search service callable from the static site. Both could interact with an AWS managed search index such as AWS OpenSearch. We could use AWS Lamdba to ingest data into search index. Lambda could also be used (accessible via API Gateway) to execute search on client request and return results.
 >
 > Importantly in order to support users with JS diabled, the search service, whether using Lambda or a longer running service, should be able to return results as HTML not just JSON.
 >
