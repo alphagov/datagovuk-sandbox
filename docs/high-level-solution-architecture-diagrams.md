@@ -40,7 +40,7 @@ flowchart LR
 ## Option 2 – Admin UI + static pages
 ```mermaid
 flowchart LR
-    subgraph AdminUI["Admin UI"]
+    subgraph AdminUI["Admin + background tasks"]
         admin_ui_app["Admin UI - Flask/Django/FastAPI"]
         queue[("Redis")]
         workers["Background Workers (ARQ/Redis)"]
