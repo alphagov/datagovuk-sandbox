@@ -35,6 +35,7 @@ Markdown and scripts for site generation, validation and refresh of visualisatio
 - Build times directly impact publishing latency. Cache invalidation is also a factor.
 - Data refresh scripts need developer effort to create and maintain.
 - Note: GitHub Pages is not a fit because we need path-based routing (e.g., `/datasets/*`) to a separate origin.
+- Additional infrastructure setup needed to support search and redirects if needed. See section below on [redirect and search](#redirect-and-search)
 
 ## Option 2 – Admin UI + static pages
 An Admin UI app (Flask/Django/FastAPI) stores content and metadata in PostgreSQL. Editors manage content there. Background workers (ARQ/Redis or similar) validate URLs, fetch/transform external data sources and write back derived JSON/content in the database. The workers then publish rendered HTML to a static site on S3, fronted by CloudFront.
@@ -74,7 +75,22 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - **Static tooling**: A benefit of options 1 and 2. Simpler infrastructure traded off against a more complex build and deploy strategy.
 - **Preview strategy**: With static options we could maintain a staging/preview environment. For a monolithic admin ui app, we could provide preview URLs on applications accessible via allow listed IP range/VPN.
 
-These outlines should be enough to pick a direction, with detailed stack choices deferred until we lock in the operating mode.
+### Redirect and search<a name="redirect-and-search"></a>
+
+> [!NOTE]
+> If we adopt a static deployment approach then it's worth noting that additional development and infrastucture would be needed to support redirects and search.
+>
+> In both cases there would additional moving parts would need to be specified. Both redirect and search can be implemented using core products offered in AWS, but we need to spend the time to think through the implementation.
+> 
+> Redirects could be handled by Cloudfront functions and Cloudfront key value store. Lamda@Edge would also a possibility, but final approach can be discussed.
+>     
+> Search is a more complex question in that it would mean running an indexing service and a search service callable from the static . Both could interact with the AWS managed search index such as AWS OpenSearch. We could use AWS Lamdba to ingest data into search index. Lambda could also be used (accessible via API Gateway) to execute search on client request and return results.
+>
+> Most likely the search service however implemented, whether using Lambda or a longer running service, it should be developed such that it could return HTML results (not just JSON) in case we want to support users with JS diabled.
+>
+
+    
+These outlines should be enough to pick a direction, with detailed stack choices deferred until we lock in the operating model.
 
 ## Concluding recommendation
 
