@@ -89,7 +89,7 @@ flowchart LR
     visitor -->|Request pages| web_app
     visitor -->|/datasets/*| find_app
     web_app --> db
-    web_app -->|Schedule/enqueue jobs| queue
+    web_app -->|Schedule tasks| queue
     workers -->|Fetch & transform external data| data_sources
     workers -->|Store results| db
     queue -->|Process tasks| workers
