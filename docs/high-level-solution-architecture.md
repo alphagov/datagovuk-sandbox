@@ -49,6 +49,7 @@ An Admin UI app (Flask/Django/FastAPI) stores content and metadata in PostgreSQL
 - Publishing waits for build runs and orchestration adds operational complexity.
 - Running and maintaining the Admin UI application brings operational costs similar to Option 3 for the editorial side, while still relying on the static delivery model for the public site.
 - Content lives in a database rather than in version-controlled files, so database backup and content recovery become concerns (in Option 1, Git serves as the backup and audit trail).
+- Additional infrastructure setup needed to support search and redirects if needed. See section below on [redirect and search](#redirect-and-search)
 
 ## Option 3 – Admin UI + server side rendering
 A single web app handles Admin UI editing and public page rendering, with background workers running alongside it. Editors can edit and view content directly in a single application. Visitors request pages from the same app. The web app schedules/enqueues jobs to Redis - workers check published URLs as well as fetch/transform external data sources and store results in PostgreSQL.
@@ -88,9 +89,6 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 >
 > Most likely the search service however implemented, whether using Lambda or a longer running service, it should be developed such that it could return HTML results (not just JSON) in case we want to support users with JS diabled.
 >
-
-    
-These outlines should be enough to pick a direction, with detailed stack choices deferred until we lock in the operating model.
 
 ## Concluding recommendation
 
