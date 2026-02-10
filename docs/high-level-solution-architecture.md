@@ -26,7 +26,8 @@ We use "Admin UI" rather than "CMS" because the intent is a very basic editing a
 Markdown and scripts for site generation, validation and refresh of visualisation data live in a GitHub repository. Editors edit markdown in GitHub. GitHub Actions pull visualisation data from external sources, transform it into the formats needed for charts, and check URLs in front matter on a daily basis. Other scripts render pages from markdown, triggered by commits to `main`, and deployment pushes the generated content to S3, fronted by CloudFront.
 
 **Benefits**
-- Leverages GitHub workflows and pull requests for editorial review and change control. Editors work on draft branches and create pull requests when pages are ready for review. A staging environment provides previews of changes before merging to main and publishing to production.
+- Leverages GitHub workflows and pull requests for editorial review and change control. Editors work on draft branches and create pull requests when pages are ready for review.
+- A staging/preview environment provides previews of changes before merging to main and publishing to production.
 - Reproducible builds with a clear audit trail in the repository.
 - Minimal runtime surface area if all rendering happens in CI.
 
