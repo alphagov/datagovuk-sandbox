@@ -81,13 +81,13 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 > [!NOTE]
 > If we adopt a static deployment approach then it's worth noting that additional development and infrastucture would be needed to support redirects and search.
 >
-> In both cases there would additional moving parts would need to be specified. Both redirect and search can be implemented using core products offered in AWS, but we need to spend the time to think through the implementation.
+> In both cases additional moving parts would need to be specified. Both redirect and search can be implemented using core products offered in AWS, but we need to spend the time to think through the implementation.
 > 
 > Redirects could be handled by Cloudfront functions and Cloudfront key value store. Lamda@Edge would also a possibility, but final approach can be discussed.
 >     
-> Search is a more complex question in that it would mean running an indexing service and a search service callable from the static . Both could interact with the AWS managed search index such as AWS OpenSearch. We could use AWS Lamdba to ingest data into search index. Lambda could also be used (accessible via API Gateway) to execute search on client request and return results.
+> Search is a more complex question in that it would mean running an indexing service and a search service callable from the static. Both could interact with an AWS managed search index such as AWS OpenSearch. We could use AWS Lamdba to ingest data into search index. Lambda could also be used (accessible via API Gateway) to execute search on client request and return results.
 >
-> Most likely the search service however implemented, whether using Lambda or a longer running service, it should be developed such that it could return HTML results (not just JSON) in case we want to support users with JS diabled.
+> Importantly in order to support users with JS diabled, the search service, whether using Lambda or a longer running service, should be able to return results as HTML not just JSON.
 >
 
 ## Concluding recommendation
