@@ -68,7 +68,7 @@ def companies_formed_by_quarter(csv_url, number_of_quarters):
     print(f"Loaded {len(df)} rows")
     result = _extract_last_n_quarters(df, csv_url, number_of_quarters)
     if result is not None:
-        output_file = DATA_DIR / "quaterly-company-formation-dissolution.json"
+        output_file = DATA_DIR / "quarterly-company-formation-dissolution.json"
         with open(output_file, "w") as f:
             json.dump(result, f, indent=2)
         print(f"Saved to {output_file}")
