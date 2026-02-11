@@ -1,7 +1,10 @@
-# Option 1
+# Option 1 implementation notes
 
-URL structure
-Preview
+## URLs
 
-Open questions
-Cloudfront and 2 AWS accounts
+## Preview
+
+## Cloudfront and routing
+
+## Other?
+
