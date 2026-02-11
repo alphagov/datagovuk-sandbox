@@ -22,7 +22,7 @@ then we would set the canonical URL in page head to `/collection/business-and-ec
 
 Note take care with Cloudfront Function to handle requests with file extensions property, e.g. *.js or *.css etc.
 
-There is another option which would be always write static files without .html file extension and then we can have URLs like `/collection/business-and-economy` regardless of the serving mechanism, but we'd need to take care to always make sure we set content types propertly when putting files in S3.
+There is another option which would be always write static files without .html file extension and then we can have URLs like `/collection/business-and-economy` regardless of the serving mechanism, but we'd need to take care to always make sure we set content types properly when putting files in S3.
 
 
 ## Preview
