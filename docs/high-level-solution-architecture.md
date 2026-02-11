@@ -68,7 +68,7 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - **Path based routing**: If specific URL patterns (e.g., `/datasets/*`) must be handled by a separate application, use CDN path-based behaviours to route those requests to an alternate origin while the rest of the site is served from S3 or the main app.
 - **Automation for data and URL checks**: Use automation to validate URLs, fetch and transform small data extracts for visualisations. Keep this lean so it supports the site without becoming a major platform in its own right.
 - **Background jobs**: Use scheduled workflows (GitHub Actions in Option 1) or Redis-backed queues (RQ/ARQ in Options 2/3) for URL checks and data refresh. Graduate to heavier orchestration only if needed.
-- **Hosting**: All options benefit from CDN fronting. Option 1 can be just S3 + CloudFront. Option 2 adds a small Admin UI service (ECS/Fargate, App Runner or Elastic Beanstalk). Option 3 needs a full application tier (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL.
+- **Hosting**: All options benefit from CDN fronting. Option 1 can be just S3 + CloudFront. Option 2 adds a small Admin UI service (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL. Option 3 needs a full application tier (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL.
 - **Previews**: Option 1 requires deployment to a staging environment to fully preview rendered pages. Options 2 and 3 can provide in application page previews within the Admin UI.
 
 ## Tech notes
