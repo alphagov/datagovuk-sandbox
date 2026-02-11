@@ -33,7 +33,7 @@ The Github workflow would need discussing with content and devs setting it up, b
 
 ## Cloudfront and routing
 
-In case the static part of the overall solution is in one AWS account and at least for some period of time the existing find/ckan stack remains in existing AWS account we need to resolve how to have the Cloudfront distribution in new account direct `datasets/*` traffic to an origin in the existing origin safely. If both parts reside in same account then this isn't an issue but if they are separate we need to bottom out an approach.
+In case the static part of the overall solution is implemented in a new AWS account and at least for some period of time the existing find/ckan stack remains in the existing AWS account we need to resolve how to have the Cloudfront distribution in the new account directs `datasets/*` traffic to an origin in the existing AWS account origin safely. If both parts reside in same AWS account then this isn't an issue but if they are separate we need to bottom out an approach.
 
 *Sketch out an approach*
 
