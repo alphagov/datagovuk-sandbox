@@ -2,7 +2,7 @@
 
 ## URLs
 
-With static site builders a failty common practice is to use directory + index.html style URLs, where a request for a page `/somepage/somepath/` gets the content of `/somepage/somepath/index.html`
+With static site builders a fairly common practice is to use directory + index.html style URLs, where a request for a page `/somepage/somepath/` gets the content of `/somepage/somepath/index.html`
 
 For example:
   - We create an index.html at `/collection/business-and-economy/index.html` with a canonical URL of `/collection/business-and-economy/` in page head.
