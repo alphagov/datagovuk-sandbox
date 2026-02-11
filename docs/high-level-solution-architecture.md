@@ -71,6 +71,9 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - **Hosting**: All options benefit from CDN fronting. Option 1 can be just S3 + CloudFront. Option 2 adds a small Admin UI service (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL. Option 3 needs a full application tier (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL.
 - **Previews**: Option 1 requires deployment to a staging environment to fully preview rendered pages. Options 2 and 3 can provide in application page previews within the Admin UI.
 
+> [!NOTE]
+> With regard to hosting the assumption is this work will be done in a new AWS account, however we need to recognise that we may have to remain withing govuk AWS estate. If that's the case we can review and see what is most appropriate.
+
 ## Tech notes
 - **Framework choice**: Django (without Wagtail) plus its task system offers a batteries-included route. Wagtail is a capable, mature and well supported CMS but may be heavier than needed for a narrow content model and small team. Flask remains attractive for a lightweight Admin UI if we value minimal surface area - pair it with RQ for background work. FastAPI is also a possible choice.
 - **FastAPI + Redis**: If we favour async IO or want "out of the box" API capabilities, FastAPI with an ARQ/Redis worker provides an integrated API and simple task queue and makes it easy to expose both Admin UI APIs and background job control.
@@ -101,4 +104,6 @@ By beginning with a simple, file based source of truth, the project remains easy
 
 ## What factors would drive option upgrade
 
-TODO
+- Number of topics/dataset pages makes management in Github difficult - a bit vague but we need to define difficult, e.g. difficulty finding the page to work on? 
+- We want outside users/publishers to be able to provide/publish datasets. In that case we may want to build an application to support that, e.g. an admin UI.
+- The pages and/or site structure becomes more complex and could benefit from having some application/tooling around management of the site and pages.
