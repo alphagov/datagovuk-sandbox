@@ -12,8 +12,8 @@ For example:
 ### Things to consider
 
 Always avoid relative URLs in pages rendered - use root based URLs. For example:
-  - If we're on a URL `/page` which contains a relative link to <a href="another-page"> then the browser treats that as `/another-page`
-  - However on URL `/page/` which contains a relative link to <a href="another-page"> then the browser treats that as `/page/another-page`
+  - If we're on a URL `/page` which contains a relative link to `<a href="another-page">...` then the browser treats that as `/another-page`
+  - However on URL `/page/` which contains a relative link to `<a href="another-page">...` then the browser treats that as `/page/another-page`
 
 If we had used <a href="/another-page"> then all will be well.
 
