@@ -39,14 +39,18 @@ In case the static part of the overall solution is in one AWS account and at lea
 
 ## Automations
 
-The initial idea was Github actions will be used to run any scheduled tasks needed. For example, we want to be able to check URLs we will be publishing. What we will do when we find broken links is to be decided but using Github actions means we can open an issue.
+The initial suggestion is to use Github actions run scheduled tasks for automation. 
 
-Other automations we should try and keep as Github actions are:
+For example, we want to be able to check URLs we will be publishing. What will be done when we find broken links is to be decided with team.
+
+Other automations we could do as Github actions are:
  
  - Fetching/transforming data from external sources
  - Publishing site content to S3
 
-Automations could equally be implemented via Lambda, as long as we consider how to close the loop and feedback outcomes to the team. In general I suggest at the early stages is we follow a principle of leaning on what Github provides as much as possible but if there is a better option via Lamdbas or other, then we should consider that.
+Automations could equally be implemented via Lambda, as long as we consider how to close the loop and provide feedback to the team. In general I suggest at the early stages that we follow a principle of leaning on what Github provides as much as possible. 
+
+If there are better options via Lamdbas or other, then we should consider them.
 
 
 ## Other?
