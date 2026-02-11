@@ -47,7 +47,7 @@ flowchart LR
         db[("PostgreSQL - content")]
     end
 
-    subgraph STATIC["Static deployment"]
+    subgraph STATIC["Static site and Find app"]
     static_site["Static site - S3 + CloudFront"]
     find_app["Find app (separate origin)"]
     end
