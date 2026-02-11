@@ -7,7 +7,7 @@ With static site builders a fairly common practice is to use directory + index.h
 For example:
   - We create an index.html at `/collection/business-and-economy/index.html` with a canonical URL of `/collection/business-and-economy/` in page head.
   - We configure S3 to serve index.html page when a user requests `/collection/business-and-economy/` **note the trailing slash**.
-  - If user requests `/collection/business-and-economy` **no trailing slash** , use Cloudfront Function to 301 redirect to `/collection/business-and-economy/'
+  - If user requests `/collection/business-and-economy` **no trailing slash** , use Cloudfront Function to 301 redirect to `/collection/business-and-economy/`
 
 ### Things to consider
 
