@@ -15,7 +15,7 @@ Always avoid relative URLs in pages rendered - use root based URLs. For example:
   - If we're on a URL `/page` which contains a relative link to `<a href="another-page">...` then the browser treats that as `/another-page`
   - However on URL `/page/` which contains a relative link to `<a href="another-page">...` then the browser treats that as `/page/another-page`
 
-If we had used <a href="/another-page"> then all will be well.
+If we had used `<a href="/another-page">...` then all will be well.
 
 If in the future we move to a server side rendered application where we'd like to support pretty URLs, for example `/collection/business-and-economy` which is more the norm with those types of applications,
 then we would set the canonical URL in page metadata to `/collection/business-and-economy` and flip the redirect Cloudfront Function.
