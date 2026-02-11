@@ -5,7 +5,7 @@
 With static site builders a failty common practice is to use directory + index.html style URLs, where a request for a page `/somepage/somepath/` gets the content of `/somepage/somepath/index.html`
 
 For example:
-  - We create an index.html at `/collection/business-and-economy/index.html` with a canonical URL of `/collection/business-and-economy/`
+  - We create an index.html at `/collection/business-and-economy/index.html` with a canonical URL of `/collection/business-and-economy/` in page head.
   - We configure S3 to serve index.html page when a user requests `/collection/business-and-economy/` **note the trailing slash**.
   - If user requests `/collection/business-and-economy` **no trailing slash** , use Cloudfront Function to 301 redirect to `/collection/business-and-economy/'
 
@@ -18,7 +18,7 @@ Always avoid relative URLs in pages rendered - use root based URLs. For example:
 If we had used `<a href="/another-page">...` then all will be well.
 
 If in the future we move to a server side rendered application where we'd like to support pretty URLs, for example `/collection/business-and-economy` which is more the norm with those types of applications,
-then we would set the canonical URL in page metadata to `/collection/business-and-economy` and flip the redirect Cloudfront Function.
+then we would set the canonical URL in page head to `/collection/business-and-economy` and flip the redirect Cloudfront Function.
 
 Note take care with Cloudfront Function to handle requests with file extensions property, e.g. *.js or *.css etc.
 
