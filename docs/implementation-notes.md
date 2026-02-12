@@ -6,6 +6,15 @@
 > [!IMPORTANT]
 > This is potentially hazardous or not depending on how things are done right now. Need to check with others.
 
+## Security
+
+> [!IMPORTANT]
+> There may be some concern from security perspecting in allowing Github action access to AWS account S3 in case of static site. So we should
+> specify our approach in the case we push our content to S3 from an external source.
+>
+> We may have to consider a pull approach such that processes within AWS fetch and build content. Again specify approach in this case.
+>
+
 ## URLs in static sites
 
 With static site builders a fairly common practice is to use directory + index.html style URLs, where a request for a page `/somepage/somepath/` gets the content of `/somepage/somepath/index.html`
