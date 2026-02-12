@@ -149,19 +149,19 @@ Stable urls available for any given dataset on the platform, as csv, json or geo
 
 ***
 
-## Price paid data
+## UK house prices
 
-It's relatively straightforward to collect data on house prices for graphs/charts from the Land Registry.
+It's relatively straightforward to collect data on house prices from the page the content on this topic refers to here [https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
 
-**Note the data referred to here is the price paid data, not the house price index which is another dataset**
+**Note** - the link for this and the data would need updating monthly
 
 ### Possible visualisation
 
-Sample data: [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
+Reference data: [data/reference/Average-price-seasonally-adjusted-2025-11.csv](data/reference/Average-price-seasonally-adjusted-2025-11.csv)
 
-Visualisations such as these [https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025) are possible.
+The csv above is linked from the main monthly release page. There are a few options, the price data is by region (region name and ons geography code included) and goes
+back to 1995.
 
-What appear to be reliable index pages make access to the data straightforward.
 
 ### How data for a graph was collected
 
