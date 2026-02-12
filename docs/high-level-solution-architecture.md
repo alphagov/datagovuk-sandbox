@@ -72,7 +72,7 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - **Previews**: Option 1 requires deployment to a staging environment to fully preview rendered pages. Options 2 and 3 can provide in application page previews within the Admin UI.
 
 ### Additional notes
-In order to keep this document reasonably brief a number of cross cutting implemntation questions and notes are captured here: [Additional implementation notes will be captured here: [implementation-notes.md](implementation-notes.md)]()
+In order to keep this document reasonably brief a number of cross cutting implementation questions and notes are captured here: [implementation-notes.md](implementation-notes.md)
 
 > [!NOTE]
 > With regard to hosting the assumption is this work will be done in a new AWS account, however we need to recognise that we may have to remain withing govuk AWS estate. If that's the case we can review and see what is most appropriate.
