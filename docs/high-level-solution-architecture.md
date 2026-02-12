@@ -25,8 +25,6 @@ We use "Admin UI" rather than "CMS" because the intent is a very basic editing a
 ## Option 1 – GitHub managed static site
 Markdown and scripts for site generation, validation and refresh of visualisation data live in a GitHub repository. Editors edit markdown in GitHub. GitHub Actions pull visualisation data from external sources, transform it into the formats needed for charts, and check URLs in front matter on a daily basis. Other scripts render pages from markdown, triggered by commits to `main`, and deployment pushes the generated content to S3, fronted by CloudFront.
 
-Additional implementation notes will be captured here: [option-1-implementation-notes.md](option-1-implementation-notes.md)
-
 **Benefits**
 - Leverages GitHub workflows and pull requests for editorial review and change control. Editors work on draft branches and create pull requests when pages are ready for review.
 - A staging/preview environment provides previews of changes before merging to main and publishing to production.
@@ -73,6 +71,9 @@ A single web app handles Admin UI editing and public page rendering, with backgr
 - **Hosting**: All options benefit from CDN fronting. Option 1 can be just S3 + CloudFront. Option 2 adds a small Admin UI service (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL. Option 3 needs a full application tier (ECS/Fargate, App Runner or Elastic Beanstalk) plus Redis/PostgreSQL.
 - **Previews**: Option 1 requires deployment to a staging environment to fully preview rendered pages. Options 2 and 3 can provide in application page previews within the Admin UI.
 
+### Additional notes
+In order to keep this document reasonably brief a number of cross cutting implemntation questions and notes are captured here: [Additional implementation notes will be captured here: [implementation-notes.md](implementation-notes.md)]()
+
 > [!NOTE]
 > With regard to hosting the assumption is this work will be done in a new AWS account, however we need to recognise that we may have to remain withing govuk AWS estate. If that's the case we can review and see what is most appropriate.
 
@@ -103,6 +104,7 @@ For an effective starting point, **Option 1 (GitHub managed static site)** is re
 Importantly, this choice doesn't preclude future evolution. The architecture provides a coherent migration path to **Option 2** by developing an Admin UI whose workers would take over the role of generating the static site. Similarly, the content and data transformation scripts can be readily adapted for **Option 3** if a fully dynamic, server rendered application becomes necessary. However, migration is not zero-cost: moving from Option 1 to Option 2 or 3 means shifting from "files as source of truth" to "database as source of truth", which requires content migration and changes to how content is authored and managed.
 
 By beginning with a simple, file based source of truth, the project remains easy to understand and is well positioned to scale its infrastructure and functionality in line with future requirements.
+
 
 ## What factors would drive option upgrade
 
