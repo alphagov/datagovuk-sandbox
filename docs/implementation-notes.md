@@ -9,7 +9,7 @@
 ## Security
 
 > [!IMPORTANT]
-> There may be some concern from security perspecting in allowing Github action access to AWS account S3 in case of static site. So we should
+> There may be some concern from a security perspective in allowing Github action access to AWS account S3 in case of static site. So we should
 > specify our approach in the case we push our content to S3 from an external source.
 >
 > We may have to consider a pull approach such that processes within AWS fetch and build content. Again specify approach in this case.
