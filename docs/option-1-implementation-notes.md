@@ -1,5 +1,11 @@
 # Option 1 implementation notes
 
+
+## DNS
+
+> [!IMPORTANT]
+> This is potentially hazardous or not depending on how things are done right now. Need to check with others.
+
 ## URLs
 
 With static site builders a fairly common practice is to use directory + index.html style URLs, where a request for a page `/somepage/somepath/` gets the content of `/somepage/somepath/index.html`
