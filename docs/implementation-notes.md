@@ -46,6 +46,8 @@ We need to ensure there's a good and quick mechanism to allow preview of full pa
 
 The Github workflow would need discussing with content and devs setting it up, but the aim is to smooth out the content designer experience as much as possible.
 
+Heroku has been suggested as an option which is perfectly acceptable as is any other paas type service like this. The name of the service isn't important as the outcome is the same. We want to be able to see pages as they will be fully rendered. The only constraint other than easy preview is that we want some way to control access to the preview site.
+
 ## Cloudfront and routing
 
 In case the static part of the overall solution is implemented in a new AWS account and at least for some period of time the existing find/ckan stack remains in the existing AWS account we need to resolve how to have the Cloudfront distribution in the new account directs `datasets/*` traffic to an origin in the existing AWS account origin safely. If both parts reside in same AWS account then this isn't an issue but if they are separate we need to bottom out an approach.
