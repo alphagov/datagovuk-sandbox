@@ -62,7 +62,7 @@ File source:
 
 Table 4.1.2 is IMHO the simplest to work with. I exported the table 4.1.2 as csv. There several messy "metadata" pre-header rows to clear out.
 
-Could plot a graph of petrol and diesel prices. Other petrol types available as is oil in source data. 
+Could plot a graph of petrol and diesel prices. Other petrol types available as are various oil types in source data. 
 
 <img src="petrol_v_diesel.png" width="600">
 
