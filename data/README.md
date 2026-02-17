@@ -45,4 +45,19 @@ File source:
 Data can be sliced and diced in several ways, showing % of vote for party, number of seats etc.
 
 
+## Fuel and oil prices 
+
+CSV file here:
+
+[4.1.2-Table 1.csv](4.1.2-Table 1.csv)
+
+File source:
+
+[https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics](https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics)
+
+Table 4.1.2 is IMHO the simplest to work with. I exported the table 4.1.2 as csv. There several messy "metadata" pre-header rows to clear out.
+
+Could plot a graph of petrol and diesel prices. Other petrol types available as is oil in source data. 
+
+<img src="petrol_v_diesel.png" width="600">
 
