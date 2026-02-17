@@ -67,3 +67,21 @@ Could plot a graph of petrol and diesel prices. Other petrol types available as 
 <img src="petrol_v_diesel.png" width="600">
 
 ***
+
+## Get charity information
+
+JSON file here:
+
+[sector-overview-response.json](sector-overview-response.json)
+
+That file is the response from:
+
+`curl -H "ocp-apim-subscription-key: [your api key here]"  https://api.charitycommission.gov.uk/register/api/sectoroverview`
+
+Sign up for API key here: [https://api-portal.charitycommission.gov.uk/](https://api-portal.charitycommission.gov.uk/)
+
+API document here [reference/API_data_definition_v1.2.pdf](reference/API_data_definition_v1.2.pdf)
+
+The data fields in response JSON are defined in section on SectorDataOverview.
+
+***
