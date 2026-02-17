@@ -18,6 +18,8 @@ The data could be used to create something like this (of course adapted to the t
 <img src="headline_figures.png" width="600">
 
 
+***
+
 ## UK House prices
 
 CSV file here:
@@ -30,6 +32,8 @@ The file source:
 
 
 This can be used to create average UK house for UK regions or countries from 1968 to 2025. Or could be used to create graph of current average house prices.
+
+***
 
 
 ## UK General election results
@@ -44,6 +48,7 @@ File source:
 
 Data can be sliced and diced in several ways, showing % of vote for party, number of seats etc.
 
+***
 
 ## Fuel and oil prices 
 
@@ -61,3 +66,4 @@ Could plot a graph of petrol and diesel prices. Other petrol types available as 
 
 <img src="petrol_v_diesel.png" width="600">
 
+***
