@@ -5,7 +5,7 @@ website: https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp
 api:
 dataset:
 page-last-updated: "2026-02-05"
-visualisation-data: bank-of-england-interest-rates.json
+visualisation-data: Bank Rate history and data  Bank of England Database.csv
 contact:
 ---
 

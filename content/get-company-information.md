@@ -5,7 +5,7 @@ website: https://find-and-update.company-information.service.gov.uk/
 api: https://developer.company-information.service.gov.uk/
 dataset:
 page-last-updated: "2026-01-22"
-visualisation-data: quarterly-company-formation-dissolution.json
+visualisation-data: Companies_register_activities_April_2024_to_March_2025_table_A8.csv
 contact: hello@example.com
 ---
 

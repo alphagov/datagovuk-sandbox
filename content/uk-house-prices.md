@@ -5,7 +5,7 @@ website: https://landregistry.data.gov.uk/app/ukhpi/
 api:
 dataset: https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025
 page-last-updated: "2026-02-12"
-visualisation-data:
+visualisation-data: Average-prices-2025-11.csv
 contact:
 ---
 
