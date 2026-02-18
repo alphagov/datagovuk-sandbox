@@ -15,7 +15,7 @@ The extract is last two financial years, so go back to original if more or diffe
 
 The data could be used to create something like this (of course adapted to the topic)
 
-<img src="images/headline_figures.png" width="600">
+<img src="images/headline_figures.png" width="800">
 
 ***
 
@@ -31,7 +31,7 @@ The file source:
 
 This can be used to create average UK house for UK regions or countries from 1968 to 2025. Or could be used to create graph of current average house prices.
 
-<img src="images/nation_average_house_prices.png" width="600">
+<img src="images/nation_average_house_prices.png" width="800">
 
 ***
 
@@ -48,7 +48,7 @@ File source:
 
 Data can be sliced and diced in several ways, showing % of vote for party, number of seats etc.
 
-<img src="images/vote_share.png" width="600">
+<img src="images/vote_share.png" width="800">
 
 ***
 
@@ -66,7 +66,7 @@ Table 4.1.2 is IMHO the simplest to work with. I exported the table 4.1.2 as csv
 
 Could plot a graph of petrol and diesel prices. Other petrol types available as are various oil types in source data. 
 
-<img src="images/petrol_v_diesel.png" width="600">
+<img src="images/petrol_v_diesel.png" width="800">
 
 ***
 
