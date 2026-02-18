@@ -29,8 +29,9 @@ The file source:
 
 [https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
 
-
 This can be used to create average UK house for UK regions or countries from 1968 to 2025. Or could be used to create graph of current average house prices.
+
+<img src="images/nation_average_house_prices.png" width="600">
 
 ***
 
