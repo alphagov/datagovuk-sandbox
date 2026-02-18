@@ -46,7 +46,7 @@ File source:
 
 [https://electionresults.parliament.uk/general-elections/6](https://electionresults.parliament.uk/general-elections/6)
 
-Data can be sliced and diced in several ways, showing % of vote for party, number of seats etc.
+Data can be sliced and diced in several ways, for example by showing % of vote for party, number of seats etc.
 
 <img src="images/vote_share.png" width="800">
 
