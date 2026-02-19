@@ -29,10 +29,12 @@ The data could be used to create something like this (of course adapted to the t
 
 **What might help automate updates**
 
-GovUK Search API [https://www.gov.uk/api/search.json?q=%22Companies%20register%20activities:%20statistical%20release%22&filter_format=official_statistics&order=-public_timestamp](https://www.gov.uk/api/search.json?q=%22Companies%20register%20activities:%20statistical%20release%22&filter_format=official_statistics&order=-public_timestamp
+GovUK Search API:
+
+[https://www.gov.uk/api/search.json?q=%22Companies%20register%20activities:%20statistical%20release%22&filter_format=official_statistics&order=-public_timestamp](https://www.gov.uk/api/search.json?q=%22Companies%20register%20activities:%20statistical%20release%22&filter_format=official_statistics&order=-public_timestamp
 )
 
-Note query params
+Query params
 ```
 q = "Companies register activities statistical release"
 format = official_statistics
@@ -53,7 +55,21 @@ The file source:
 
 This can be used to create average UK house prices for UK regions or nations from 1968 to 2025. Or could be used to create graph of current average house prices.
 
-<img src="images/nation_average_house_prices.png" width="800">
+<img src="images/nations_average_house_price.png" width="800">
+
+
+**What might help automate updates**
+
+GovUK Search API:
+
+[https://www.gov.uk/api/search.json?q=%22UK%20House%20Price%20Index:%20data%20downloads%22&filter_format=statistical_data_set&order=-public_timestamp](https://www.gov.uk/api/search.json?q=%22UK%20House%20Price%20Index:%20data%20downloads%22&filter_format=statistical_data_set&order=-public_timestamp)
+
+Query params
+```
+q= UK House Price Index: data downloads
+filter_format =  tatistical_data_set
+order = -public_timestamp
+```
 
 ***
 
