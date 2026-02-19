@@ -118,6 +118,11 @@ Could plot a graph of petrol and diesel prices. Other petrol types available as 
 
 <img src="images/petrol_v_diesel.png" width="800">
 
+
+**Updates**
+
+[https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set](https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set)
+
 ***
 
 ## Get charity information :x:
