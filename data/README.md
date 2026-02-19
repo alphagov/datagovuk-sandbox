@@ -15,7 +15,7 @@ Data is downloadable from this page:
 
 [https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025](https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025)
 
-The file downloaded is:
+Downloaded file:
 
 [https://assets.publishing.service.gov.uk/media/687f74b128f29c99778a744a/Companies_register_activities_April_2024_to_March_2025.xlsx](https://assets.publishing.service.gov.uk/media/687f74b128f29c99778a744a/Companies_register_activities_April_2024_to_March_2025.xlsx)
 
@@ -84,13 +84,14 @@ order = -public_timestamp
 
 ## UK General election results :white_check_mark:
 
-CSV file here:
+Data downloads linked here:
+
+[https://electionresults.parliament.uk/general-elections/6](https://electionresults.parliament.uk/general-elections/6)
+
+Downloaded CSV file:
 
 [parties-general-election-04-07-2024.csv](parties-general-election-04-07-2024.csv)
 
-File source:
-
-[https://electionresults.parliament.uk/general-elections/6](https://electionresults.parliament.uk/general-elections/6)
 
 Data can be sliced and diced in several ways, for example by showing % of vote for party, number of seats etc.
 
@@ -108,7 +109,9 @@ The main webpage for data download is here:
 
 [https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics](https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics)
 
-Excel downloadable from that page [https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx](https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx)
+Excel downloadable from that page:
+
+[https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx](https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx)
 
 Table 4.1.2 is IMHO the simplest to work with. I exported the table 4.1.2 as csv. There several messy "metadata" pre-header rows to clear out.
 
@@ -149,17 +152,17 @@ The data fields in response JSON are defined in section on SectorDataOverview.
 
 ## Inflation :x:
 
-There are links on this page:
+Main page:
 
-[https://www.ons.gov.uk/economy/inflationandpriceindices](https://www.ons.gov.uk/economy/inflationandpriceindices) to a couple of different inflation
-measures. CPI (consumer price index) and CPIH (consumer price index + housing) both as an index or rate.
+[https://www.ons.gov.uk/economy/inflationandpriceindices](https://www.ons.gov.uk/economy/inflationandpriceindices) 
 
-I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPI annual rate from 
-here:
+There are links on this page: to a couple of different inflation measures. CPI (consumer price index) and CPIH (consumer price index + housing) both as an index or rate.
+
+I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPI annual rate CPIH also available if preferred.
+
+Download link:
 
 [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
-
-CPIH also available if preferred.
 
 CSV: [series-190226.csv](series-190226.csv) 
 
