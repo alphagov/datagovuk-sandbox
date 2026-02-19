@@ -104,24 +104,27 @@ Wait for an election
 
 ## Fuel and oil prices :white_check_mark:
 
-CSV file here:
-
-[4.1.2-Table_1.csv](4.1.2-Table_1.csv)
-
-File source:
+The main webpage for data download is here:
 
 [https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics](https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics)
 
+Excel downloadable from that page [https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx](https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5/table_411_413__5_.xlsx)
+
 Table 4.1.2 is IMHO the simplest to work with. I exported the table 4.1.2 as csv. There several messy "metadata" pre-header rows to clear out.
+
+CSV extract of Table 4.1.2 here:
+
+[4.1.2-Table_1.csv](4.1.2-Table_1.csv)
 
 Could plot a graph of petrol and diesel prices. Other petrol types available as are various oil types in source data. 
 
 <img src="images/petrol_v_diesel.png" width="800">
 
-
 **Updates**
 
 [https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set](https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set)
+
+This seems to be a stable page so could monitor the `public_timestamp` in the response JSON.
 
 ***
 
