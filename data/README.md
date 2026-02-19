@@ -175,4 +175,7 @@ A graph like this is easy enought to recreate.
 
 <img src="images/cpi_1989_2025.png" width="800">
 
+**Updates**
+
+
 ***
