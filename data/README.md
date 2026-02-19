@@ -11,14 +11,15 @@
 
 ## Get company information :white_check_mark:
 
+Data is downloadable from this page [https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025](https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025)
 
-CSV file here:
-
-[Companies_register_activities_April_2024_to_March_2025_table_A8.csv](Companies_register_activities_April_2024_to_March_2025_table_A8.csv) 
-
-The file above is an extract of table A8 from this:
+The file downloaded is:
 
 [https://assets.publishing.service.gov.uk/media/687f74b128f29c99778a744a/Companies_register_activities_April_2024_to_March_2025.xlsx](https://assets.publishing.service.gov.uk/media/687f74b128f29c99778a744a/Companies_register_activities_April_2024_to_March_2025.xlsx)
+
+Table A8 can be extracted to create this CSV:
+
+[Companies_register_activities_April_2024_to_March_2025_table_A8.csv](Companies_register_activities_April_2024_to_March_2025_table_A8.csv) 
 
 The extract is last two financial years, so go back to original if more or different data needed.
 
