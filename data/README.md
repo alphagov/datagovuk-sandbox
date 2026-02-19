@@ -22,7 +22,7 @@ The file above is an extract of table A8 from this:
 
 The extract is last two financial years, so go back to original if more or different data needed.
 
-The data could be used to create something like this (of course adapted to the topic)
+The data could be used to create something like this (of course adapted to the topic). For example we could show number of companies formed/disolved over a financial year.
 
 <img src="images/headline_figures.png" width="800">
 
