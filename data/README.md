@@ -124,7 +124,7 @@ Could plot a graph of petrol and diesel prices. Other petrol types available as 
 
 [https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set](https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set)
 
-This seems to be a stable page so could monitor the `public_timestamp` in the response JSON.
+This seems to be a stable page so it looks like we won't get a list of documents. Rather it could be that we'd have to monitor the `public_timestamp` in the response JSON as that will update when the spreadsheet is updated.
 
 ***
 
