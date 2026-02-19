@@ -155,6 +155,8 @@ measures. CPI (consumer price index) and CPIH (consumer price index + housing) b
 I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPI annual rate from 
 here [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
 
+CPIH also available if preferred.
+
 CSV: [series-190226.csv](series-190226.csv) 
 
 Lines 0 to 8 have been used by ONS to add metadata about the series. The information is of interest and this is something folks do, however it's irritating tbh.
