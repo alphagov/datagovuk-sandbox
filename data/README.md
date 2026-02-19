@@ -149,11 +149,15 @@ The data fields in response JSON are defined in section on SectorDataOverview.
 
 ## Inflation :x:
 
-There are links on this page [https://www.ons.gov.uk/economy/inflationandpriceindices](https://www.ons.gov.uk/economy/inflationandpriceindices) to a couple of different inflation
+There are links on this page:
+
+[https://www.ons.gov.uk/economy/inflationandpriceindices](https://www.ons.gov.uk/economy/inflationandpriceindices) to a couple of different inflation
 measures. CPI (consumer price index) and CPIH (consumer price index + housing) both as an index or rate.
 
 I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPI annual rate from 
-here [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
+here:
+
+[https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
 
 CPIH also available if preferred.
 
