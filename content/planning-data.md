@@ -7,4 +7,5 @@ dataset: https://www.planning.data.gov.uk/dataset/
 page-last-updated: "2026-01-23"
 visualisation-data: conservation-area.geojson
 contact:
+status: draft
 ---

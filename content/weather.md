@@ -7,6 +7,7 @@ dataset: https://climate-themetoffice.hub.arcgis.com/
 page-last-updated: "2026-01-23"
 visualisation-data:
 contact:
+status: draft
 ---
 
 Find a forecast for anywhere in the UK. Search by place or postcode on the Met Office website. Results include hourly forecasts, temperature, wind, humidity, visibility, chance of rain, UV, air pollution, sunrise and sunset. You can also apply filters, view local weather maps and check the last 3 days’ weather. 

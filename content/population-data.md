@@ -7,4 +7,5 @@ dataset: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigrat
 page-last-updated: "2026-01-23"
 visualisation-data: annual-population-change-uk-mid-1949-to-mid-2024.json
 contact:
+status: draft
 ---
