@@ -26,6 +26,19 @@ The data could be used to create something like this (of course adapted to the t
 
 <img src="images/headline_figures.png" width="800">
 
+
+**What might help automate updates**
+
+GovUK Search API [https://www.gov.uk/api/search.json?q=%22Companies%20register%20activities:%20statistical%20release%22&filter_format=official_statistics&order=-public_timestamp](https://www.gov.uk/api/search.json?q=%22Companies%20register%20activities:%20statistical%20release%22&filter_format=official_statistics&order=-public_timestamp
+)
+
+Note query params
+```
+q = "Companies register activities statistical release"
+format = official_statistics
+order = -public_timestamp
+```
+
 ***
 
 ## UK House prices :white_check_mark:
