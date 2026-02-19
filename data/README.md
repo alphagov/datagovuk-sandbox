@@ -65,7 +65,7 @@ Data can be sliced and diced in several ways, for example by showing % of vote f
 
 CSV file here:
 
-[data/4.1.2-Table 1.csv](data/4.1.2-Table 1.csv)
+[4.1.2-Table_1.csv](4.1.2-Table_1.csv)
 
 File source:
 
