@@ -30,7 +30,9 @@ The data could be used to create something like this (of course adapted to the t
 <img src="images/headline_figures.png" width="800">
 
 
-**What might help automate updates**
+**Updates**
+
+We can monitor for the new page using the GovUK Search API, and download new file on update
 
 GovUK Search API:
 
@@ -48,20 +50,23 @@ order = -public_timestamp
 
 ## UK House prices :white_check_mark:
 
-CSV file here:
+Data was downloaded from here:
+
+[https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
+
+This CSV file is linked on that page:
 
 [Average-prices-2025-11.csv](Average-prices-2025-11.csv)
 
-The file source:
-
-[https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
 
 This can be used to create average UK house prices for UK regions or nations from 1968 to 2025. Or could be used to create graph of current average house prices.
 
 <img src="images/nations_average_house_price.png" width="800">
 
 
-**What might help automate updates**
+**Updates**
+
+We can monitor for the new page using the GovUK Search API, and download new file on update
 
 GovUK Search API:
 
@@ -90,6 +95,10 @@ File source:
 Data can be sliced and diced in several ways, for example by showing % of vote for party, number of seats etc.
 
 <img src="images/vote_share.png" width="800">
+
+**Updates**
+
+Wait for an election
 
 ***
 
