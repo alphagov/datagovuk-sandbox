@@ -2,7 +2,11 @@
 
 > [!NOTE]
 > :white_check_mark: means it's ready to be worked on - i.e. take it away and work it into the page at your leisure
+> 
 >  :x: means not ready yet
+>
+
+***
 
 
 ## Get company information :white_check_mark:
