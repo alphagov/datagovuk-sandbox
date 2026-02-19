@@ -157,7 +157,7 @@ here [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm
 
 CSV: [series-190226.csv](series-190226.csv) 
 
-With lines 0 to 8 have been used by ONS to add metadata about the series. The information is of interest and this is something folks do, however it's irritating tbh.
+Lines 0 to 8 have been used by ONS to add metadata about the series. The information is of interest and this is something folks do, however it's irritating tbh.
 
 Anyway I've left them in as we can snag this for our JSON representation if needed.
 
@@ -168,6 +168,8 @@ Another issue to be aware of is the series is a little "special". It's not one s
     - lines 194 to eof is 1989 - 2025 by rate by month
 
 If I'm not mistaken there should be a way of filtering the time series, as in I applied filters in UI then clicked download filtered series, but it didn't work for me. So take your pick from that full time series csv for now :)
+
+A graph like this is easy enought to recreate.
 
 <img src="images/cpi_1989_2025.png" width="800">
 
