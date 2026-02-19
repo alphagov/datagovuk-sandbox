@@ -96,3 +96,30 @@ API document here [reference/API_data_definition_v1.2.pdf](reference/API_data_de
 The data fields in response JSON are defined in section on SectorDataOverview.
 
 ***
+
+
+## Inflation :x:
+
+There are links on this page [https://www.ons.gov.uk/economy/inflationandpriceindices](https://www.ons.gov.uk/economy/inflationandpriceindices) to a couple of different inflation
+measures. CPI (consumer price index) and CPIH (consumer price index + housing) both as an index or rate.
+
+I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPI annual rate from 
+here [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
+
+CSV: [series-190226.csv](series-190226.csv) 
+
+With lines 0 to 8 have been used by ONS to add metadata about the series. The information is of interest and this is something folks do, however it's irritating tbh.
+
+Anyway I've left them in as we can snag this for our JSON representation if needed.
+
+Another issue to be aware of is the series is a little "special". It's not one series, but three.
+
+    - lines 9 to 45 inclusive is 1989 - 2025 annualised rate
+    - lines 46 to 193 inclusive is 1989 - 2025 by rate by quarter
+    - lines 194 to eof is 1989 - 2025 by rate by month
+
+If I'm not mistaken there should be a way of filtering the time series, as in I applied filters in UI then clicked download filtered series, but it didn't work for me. So take your pick from that full time series csv for now :)
+
+<img src="images/cpi_1989_2025.png" width="800">
+
+***
