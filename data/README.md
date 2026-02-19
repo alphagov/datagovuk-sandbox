@@ -66,7 +66,7 @@ GovUK Search API:
 
 Query params
 ```
-q= UK House Price Index: data downloads
+q = "UK House Price Index: data downloads"
 filter_format =  tatistical_data_set
 order = -public_timestamp
 ```
