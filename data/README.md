@@ -11,7 +11,9 @@
 
 ## Get company information :white_check_mark:
 
-Data is downloadable from this page [https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025](https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025)
+Data is downloadable from this page:
+
+[https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025](https://www.gov.uk/government/statistics/companies-register-activities-statistical-release-april-2024-to-march-2025)
 
 The file downloaded is:
 
