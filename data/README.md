@@ -1,7 +1,12 @@
 # Visualisation source data
 
+> [!NOTE]
+> :white_check_mark: means it's ready to be worked on - i.e. take it away and work it into the page at your leisure
+>  :x: means not ready yet
 
-## Get company information
+
+## Get company information :white_check_mark:
+
 
 CSV file here:
 
@@ -19,7 +24,7 @@ The data could be used to create something like this (of course adapted to the t
 
 ***
 
-## UK House prices
+## UK House prices :white_check_mark:
 
 CSV file here:
 
@@ -36,7 +41,7 @@ This can be used to create average UK house prices for UK regions or nations fro
 ***
 
 
-## UK General election results
+## UK General election results :white_check_mark:
 
 CSV file here:
 
@@ -52,7 +57,7 @@ Data can be sliced and diced in several ways, for example by showing % of vote f
 
 ***
 
-## Fuel and oil prices 
+## Fuel and oil prices :white_check_mark:
 
 CSV file here:
 
@@ -70,7 +75,7 @@ Could plot a graph of petrol and diesel prices. Other petrol types available as 
 
 ***
 
-## Get charity information
+## Get charity information :x:
 
 JSON file here:
 
