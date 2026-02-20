@@ -205,6 +205,9 @@ From there you can download this:
 
 [https://assets.publishing.service.gov.uk/media/685bbb2689ba18761d97609f/Air_Pollution_Episodes_2024.ods](https://assets.publishing.service.gov.uk/media/685bbb2689ba18761d97609f/Air_Pollution_Episodes_2024.ods)
 
+This graph shows the number of days a year that pollution levels exceeded moderate in urban areas between 2010 and 2024.
+
+<img src="images/air_pollution.png" width="800">
 
 **Updates**
 
