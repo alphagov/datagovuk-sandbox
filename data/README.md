@@ -186,3 +186,50 @@ A graph like this is easy enought to recreate.
 
 
 ***
+
+## Air quality :x:
+
+A useful overview page with charts and links to chart data as CSV here:
+
+[https://www.gov.uk/government/statistics/air-quality-statistics/days-with-moderate-or-higher-air-pollution-includes-sulphur-dioxide](https://www.gov.uk/government/statistics/air-quality-statistics/days-with-moderate-or-higher-air-pollution-includes-sulphur-dioxide)
+
+Got this CSV download from the page above
+
+[https://www.gov.uk/csv-preview/685bb9e341d77db4f68eb18e/fig17_urban_days_above_moderate.csv](https://www.gov.uk/csv-preview/685bb9e341d77db4f68eb18e/fig17_urban_days_above_moderate.csv)
+
+Page with links to spreadsheets used in making the public page above:
+
+[https://www.gov.uk/government/statistical-data-sets/env02-air-quality-statistics](https://www.gov.uk/government/statistical-data-sets/env02-air-quality-statistics)
+
+From there you can download this:
+
+[https://assets.publishing.service.gov.uk/media/685bbb2689ba18761d97609f/Air_Pollution_Episodes_2024.ods](https://assets.publishing.service.gov.uk/media/685bbb2689ba18761d97609f/Air_Pollution_Episodes_2024.ods)
+
+
+**Updates**
+
+GovUK Search API:
+
+It seems GovUK Search API might help with part as we can check for updates, using `public_timestamp` of main statistics page. From there we could fetch and check CSV.
+
+[https://www.gov.uk/api/search.json?q=%22Days%20with%20%27Moderate%27%20or%20higher%20air%20pollution%22&filter_format=national_statistics](https://www.gov.uk/api/search.json?q=%22Days%20with%20%27Moderate%27%20or%20higher%20air%20pollution%22&filter_format=national_statistics)
+
+Query params
+```
+q = "Days with 'Moderate' or higher air pollution"
+format = national_statistics
+```
+
+Or we could get the page with links to the Spreadsheets used
+
+[https://www.gov.uk/api/search.json?q=%22ENV02%20-%20Air%20quality%20statistics%22&filter_format=statistical_data_set](https://www.gov.uk/api/search.json?q=%22ENV02%20-%20Air%20quality%20statistics%22&filter_format=statistical_data_set)
+
+From there again, check public timestamp then look for the correct spreadsheet. I wish the search results included links. Maybe there's another API call we could make?
+
+Query params
+```
+q = "ENV02 - Air quality statistics"
+format = statistical_data_set
+```
+
+
