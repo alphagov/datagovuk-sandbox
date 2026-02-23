@@ -150,7 +150,7 @@ The data fields in response JSON are defined in section on SectorDataOverview.
 ***
 
 
-## Inflation :x:
+## Inflation :white_check_mark:
 
 Main page:
 
@@ -158,13 +158,15 @@ Main page:
 
 There are links on this page: to a couple of different inflation measures. CPI (consumer price index) and CPIH (consumer price index + housing) both as an index or rate.
 
-I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPI annual rate CPIH also available if preferred.
+CPIH is the main ONS measure and we'll go with that for now.
+
+I'm guessing most people will have a more intuitive understanding as a rate rather than an index, so have downloaded the current CPIH.
 
 Download link:
 
-[https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23)
+[https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23]([https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23))
 
-CSV: [series-190226.csv](series-190226.csv) 
+CSV: [series-230226.csv](series-230226.csv) 
 
 Lines 0 to 8 have been used by ONS to add metadata about the series. The information is of interest and this is something folks do, however it's irritating tbh.
 
