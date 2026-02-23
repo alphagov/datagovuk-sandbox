@@ -194,7 +194,7 @@ And it's one hop from there to a csv download.
 
 ***
 
-## Air quality :x:
+## Air quality :white_check_mark:
 
 A useful overview page with charts and links to chart data as CSV here:
 
