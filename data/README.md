@@ -123,6 +123,7 @@ Could plot a graph of petrol and diesel prices. Other petrol types available as 
 
 <img src="images/petrol_v_diesel.png" width="800">
 
+
 **Updates**
 
 [https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set](https://www.gov.uk/api/search.json?q=%22Monthly%20and%20annual%20prices%20of%20road%20fuels%20and%20petroleum%20products%22&filter_format=statistical_data_set)
@@ -180,9 +181,7 @@ Another issue to be aware of is the series is a little "special". It's not one s
 
 If I'm not mistaken there should be a way of filtering the time series, as in I applied filters in UI then clicked download filtered series, but it didn't work for me. So take your pick from that full time series csv for now :)
 
-A graph like this is easy enought to recreate.
-
-<img src="images/cpi_1989_2025.png" width="800">
+<img src="images/cpih_annual_rate.png" width="800">
 
 **Updates**
 
