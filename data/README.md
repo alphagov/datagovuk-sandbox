@@ -185,6 +185,12 @@ If I'm not mistaken there should be a way of filtering the time series, as in I 
 
 **Updates**
 
+Fortunately ONS have provided a nice API to identify the latest publication:
+
+[https://api.beta.ons.gov.uk/v1/datasets/cpih01](https://api.beta.ons.gov.uk/v1/datasets/cpih01)
+
+And it's one hop from there to a csv download.
+
 
 ***
 
