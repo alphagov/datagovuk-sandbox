@@ -191,7 +191,6 @@ Fortunately ONS have provided a nice API to identify the latest publication:
 
 And it's one hop from there to a csv download.
 
-
 ***
 
 ## Air quality :white_check_mark:
@@ -242,4 +241,37 @@ q = "ENV02 - Air quality statistics"
 format = statistical_data_set
 ```
 
+***
+
+## Road traffic :x:
+
+The main page used for this is DfT provisional road traffic statistics (TRA25).
+
+[https://www.gov.uk/government/statistics/provisional-road-traffic-estimates-great-britain-october-2024-to-september-2025/provisional-road-traffic-estimates-great-britain-october-2024-to-september-2025](https://www.gov.uk/government/statistics/provisional-road-traffic-estimates-great-britain-october-2024-to-september-2025/provisional-road-traffic-estimates-great-britain-october-2024-to-september-2025)
+
+There are links from there to the underlying data sources here:
+
+[https://www.gov.uk/government/statistical-data-sets/tra25-quarterly-estimates](https://www.gov.uk/government/statistical-data-sets/tra25-quarterly-estimates)
+
+And the following files were downloaded from there:
+
+1. [https://assets.publishing.service.gov.uk/media/69317b5e5b5198836f304075/tra2501-miles-by-vehicle-type.ods](https://assets.publishing.service.gov.uk/media/69317b5e5b5198836f304075/tra2501-miles-by-vehicle-type.ods)
+2. [https://assets.publishing.service.gov.uk/media/693177a2502f392086ee8c02/tra2502-miles-by-road-class.ods](https://assets.publishing.service.gov.uk/media/693177a2502f392086ee8c02/tra2502-miles-by-road-class.ods)
+
+CSV files were extracted from the ODS spreadsheets here:
+
+1. [tra2501-miles-by-vehicle-type-TRA2501a.csv](tra2501-miles-by-vehicle-type-TRA2501a.csv)
+2. [tra2502-miles-by-road-class-TRA2502a.csv](tra2502-miles-by-road-class-TRA2502a.csv)
+
+To create the graphs below the following processing was needed:
+
+1. Calculated percentage shares from the latest period
+2. Grouped 'A' roads (rural and urban) and minor roads (rural and urban)
+
+
+<img src="images/traffic_by_vehicle_type.png" width="800">
+
+<img src="images/traffic_by_road_class.png" width="800">
+
+**Updates**
 
