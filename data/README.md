@@ -280,3 +280,24 @@ To create the graphs below the following processing was needed:
 
 **Updates**
 
+***
+
+## Deprivation :x:
+
+Main website we are using for this is:
+
+[https://deprivation.communities.gov.uk/](https://deprivation.communities.gov.uk/)
+
+Site has download links for the full dataset, as well as subsets.
+
+I've downloaded a CSV of local authorities and their index of multiple deprivation which is here:
+
+[reference/IoD-2025-custom_data_download-LAD.csv](reference/IoD-2025-custom_data_download-LAD.csv)
+
+We could experiment with options of the above data, but rather than pick out bottom 5 or 10 boroughs, maybe we do a screenshot for this one
+
+<img src="images/deprivation.png" width="800">
+
+**Updates**
+
+
