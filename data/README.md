@@ -170,7 +170,7 @@ I'm guessing most people will have a more intuitive understanding as a rate rath
 
 Download link:
 
-[https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23]([https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23))
+[https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23)
 
 CSV: [series-230226.csv](series-230226.csv) 
 
