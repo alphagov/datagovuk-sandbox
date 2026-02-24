@@ -5,7 +5,7 @@ website: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarr
 api: https://developer.ons.gov.uk/
 dataset: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations
 page-last-updated: "2026-01-28"
-visualisation-data: total-live-birth-counts-england-and wales-1939-to-2024.json
+visualisation-data:
 contact:
 status: draft
 ---

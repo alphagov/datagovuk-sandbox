@@ -5,7 +5,7 @@ website: https://www.gov.uk/government/collections/commodity-prices
 api:
 dataset:
 page-last-updated: "2026-02-05"
-visualisation-data: wholesale-banana-prices-weekly-2015-to-2025.json
+visualisation-data:
 contact:
 status: draft
 ---

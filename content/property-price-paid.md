@@ -5,7 +5,7 @@ website: https://landregistry.data.gov.uk/app/ppd/
 api: https://use-land-property-data.service.gov.uk/api-information
 dataset: https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
 page-last-updated: "2026-01-23"
-visualisation-data: summary-average-house-prices-2025-11.json
+visualisation-data:
 contact:
 status: draft
 ---
