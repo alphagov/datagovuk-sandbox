@@ -29,6 +29,11 @@ The data could be used to create something like this (of course adapted to the t
 
 <img src="images/headline_figures.png" width="800">
 
+An example of some headline figures that could be extracted from the two line csv:
+
+<img src="images/company_register_activity_options.png" width="800">
+
+Of course, we can return to the source and extract options if these don't work for anyone.
 
 **Updates**
 
