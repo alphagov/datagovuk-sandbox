@@ -320,7 +320,7 @@ We could experiment with options of the above data, but rather than pick out bot
 
 Or a chart like this:
 
-**Note** this needs a combination with a ONS region code list to indentify which region a LA is in. Not difficult, but not in this source
+**Note** this requires combining the source data with ONS region code list to identify which region an LA is in so you can aggregate the figure. Not difficult but something that needs doing.
 
 <img src="images/deprivation_chart.png" width="800">
 
