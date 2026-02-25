@@ -7,7 +7,7 @@ dataset: https://assets.publishing.service.gov.uk/media/6978dcbad6ab92f1d3a4d6d5
 page-last-updated: "2026-02-17"
 visualisation-data:
 contact:
-status: for-dev
+status: for-publication
 ---
 
 Monthly and annual prices of road fuels and fuels used for home heating, plus an index of crude oil prices. View the data online or download the spreadsheet. This dataset is owned by the Department for Energy Security and Net Zero. 

@@ -7,7 +7,7 @@ dataset: https://www.gov.uk/government/statistical-data-sets/uk-house-price-inde
 page-last-updated: "2026-02-12"
 visualisation-data:
 contact:
-status: for-dev
+status: for-publication
 ---
 
 Search the UK house price index (HPI) to find house price trends in the UK, or download the full dataset as CSV. The HPI uses house sales data from HM Land Registry, Registers of Scotland and Land and Property Services Northern Ireland, and is calculated by the Office for National Statistics. The index is published monthly, with Northern Ireland figures updated quarterly. 

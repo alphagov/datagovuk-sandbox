@@ -7,7 +7,7 @@ dataset: https://electionresults.parliament.uk/elections
 page-last-updated: "2026-01-23"
 visualisation-data:
 contact:
-status: for-dev
+status: for-publication
 ---
 
 Get UK Parliament election results for every general election since 2010 and every by-election since the 2015 general election. Results include the number of constituencies contested and won, and the number of votes and vote share, for every party that stood a candidate in each election. 
