@@ -297,9 +297,6 @@ Or a line graph like this (we don't need all the series on chart if too busy)
 <img src="images/traffic_by_vehicle_type.png" width="800">
 <img src="images/traffic_by_road_class.png" width="800">
 
-
-
-
 **Updates**
 
 ***
@@ -319,6 +316,13 @@ I've downloaded a CSV of local authorities and their index of multiple deprivati
 We could experiment with options of the above data, but rather than pick out bottom 5 or 10 boroughs, maybe we do a screenshot for this one
 
 <img src="images/deprivation.png" width="800">
+
+
+Or a chart like this:
+
+**Note** this needs a combination with a ONS region code list to indentify which region a LA is in. Not difficult, but not in this source
+
+<img src="images/deprivation_chart.png" width="800">
 
 **Updates**
 
