@@ -4,7 +4,7 @@ collection: People
 website: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths
 api: https://developer.ons.gov.uk/
 dataset: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathsregisteredsummarystatisticsenglandandwales
-page-last-updated: "2026-01-30"
+page-last-updated:
 visualisation-data:
 contact:
 status: draft

@@ -4,7 +4,7 @@ collection: Business and economy
 website: https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp
 api:
 dataset:
-page-last-updated: "2026-02-05"
+page-last-updated:
 visualisation-data:
 contact:
 status: draft

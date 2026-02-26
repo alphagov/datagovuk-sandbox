@@ -4,7 +4,7 @@ collection: Transport
 website: https://www.gov.uk/get-vehicle-information-from-dvla
 api: https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html
 dataset:
-page-last-updated: "2026-01-23"
+page-last-updated:
 visualisation-data:
 contact:
 status: for-publication
