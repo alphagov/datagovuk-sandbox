@@ -59,9 +59,11 @@ Data was downloaded from here:
 
 [https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025](https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025)
 
-This CSV file is linked on that page:
+This local copy of the CSV file is linked on that page:
 
 [Average-prices-2025-11.csv](Average-prices-2025-11.csv)
+
+Original file url [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv?utm_medium=GOV.UK&utm_source=datadownload)
 
 
 This can be used to create average UK house prices for UK regions or nations from 1968 to 2025. Or could be used to create graph of current average house prices.
