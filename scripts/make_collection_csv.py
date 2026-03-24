@@ -2,15 +2,11 @@ import csv
 import subprocess
 import tempfile
 from pathlib import Path
-from scripts.config import COLLECTION_CSV_FIELDS, COLLECTIONS_CSV
+from scripts.config import COLLECTION_CSV_FIELDS, COLLECTIONS_CSV, COLLECTIONS_SUBDIR, REPO_URL
 
 import click
 import frontmatter
 from slugify import slugify
-
-
-REPO_URL = "https://github.com/alphagov/datagovuk_find.git"
-COLLECTIONS_SUBDIR = "app/content/collections"
 
 
 def clone_repo(repo_url: str, branch: str, dest: Path):

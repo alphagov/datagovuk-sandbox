@@ -88,7 +88,7 @@ def check_urls(input_path, headed, slow_mo):
     reachable = sum(1 for r in rows if r.get("reachable") is True)
     click.echo(f"Results: {on_page}/{len(rows)} on page, {reachable}/{len(rows)} reachable")
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M")
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M")
     out = RESULTS_DIR / f"collection-check-{timestamp}.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
 
