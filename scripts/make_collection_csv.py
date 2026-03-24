@@ -95,7 +95,7 @@ def get_urls(collections_dir: Path) -> list[dict]:
 
 
 @click.command()
-@click.option("--branch", default="main-mvp", help="Git branch to clone.")
+@click.option("--branch", default="main", help="Git branch to clone.")
 def get_collection_urls(branch):
     with tempfile.TemporaryDirectory() as tmp:
         dest = Path(tmp) / "datagovuk_find"
