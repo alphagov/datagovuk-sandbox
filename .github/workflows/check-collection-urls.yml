@@ -18,6 +18,9 @@ jobs:
 
       - run: uv sync
 
+      - name: Install Playwright browsers
+        run: uv run playwright install chromium --with-deps
+
       - name: Generate collection CSV
         run: uv run python -m scripts.cli get-collection-urls
 

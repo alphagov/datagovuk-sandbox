@@ -30,6 +30,6 @@ def check_link_text(input_path):
 
     click.echo(f"Found {len(missing)} URLs missing link-text:\n")
     for row in missing:
-        click.echo(f"\t{row['collection']} / {row['topic']}")
+        click.echo(f"\t{row['collection']} / {row['slug']}")
         click.echo(f"\t{row['url']}")
         click.echo()

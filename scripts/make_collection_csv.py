@@ -6,6 +6,7 @@ from scripts.config import COLLECTION_CSV_FIELDS, COLLECTIONS_CSV
 
 import click
 import frontmatter
+from slugify import slugify
 
 
 REPO_URL = "https://github.com/alphagov/datagovuk_find.git"
@@ -19,7 +20,7 @@ def clone_repo(repo_url: str, branch: str, dest: Path):
     )
 
 
-def extract_urls(metadata: dict, collection: str, topic: str) -> list[dict]:
+def extract_urls(metadata: dict, collection: str, slug: str) -> list[dict]:
     rows = []
 
     for site in metadata.get("websites") or []:
@@ -33,7 +34,7 @@ def extract_urls(metadata: dict, collection: str, topic: str) -> list[dict]:
             rows.append(
                 {
                     "collection": collection,
-                    "topic": topic,
+                    "slug": slug,
                     "url": url,
                     "link-text": text,
                     "type": "website",
@@ -51,7 +52,7 @@ def extract_urls(metadata: dict, collection: str, topic: str) -> list[dict]:
                 rows.append(
                     {
                         "collection": collection,
-                        "topic": topic,
+                        "slug": slug,
                         "url": url,
                         "link-text": text,
                         "type": field_type,
@@ -69,7 +70,7 @@ def extract_urls(metadata: dict, collection: str, topic: str) -> list[dict]:
                     rows.append(
                         {
                             "collection": collection,
-                            "topic": topic,
+                            "slug": slug,
                             "url": url,
                             "link-text": link_text,
                             "type": field_type,
@@ -91,8 +92,9 @@ def get_urls(collections_dir: Path) -> list[dict]:
             except Exception as exc:
                 click.echo(f"Skipping {md_file}: {exc}", err=True)
                 continue
-            topic = f_matter.metadata.get("title", md_file.stem)
-            rows.extend(extract_urls(f_matter.metadata, collection, topic))
+            title = f_matter.metadata.get("title", md_file.stem)
+            slug = slugify(title)
+            rows.extend(extract_urls(f_matter.metadata, collection, slug))
     return rows
 
 

@@ -1,8 +1,10 @@
 from pathlib import Path
 
-COLLECTION_CSV_FIELDS = ["collection", "topic", "url", "link-text", "type"]
-RESULTS_CSV = COLLECTION_CSV_FIELDS + ["status-code", "notes"]
+COLLECTION_CSV_FIELDS = ["collection", "slug", "url", "link-text", "type"]
+RESULTS_CSV = COLLECTION_CSV_FIELDS + ["on-page", "reachable"]
 
+DATA_GOV_URL = "https://data.gov.uk"
+COLLECTION_URL = DATA_GOV_URL + "/collections"
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"

@@ -7,5 +7,6 @@ requires-python = ">=3.13"
 dependencies = [
     "click",
     "python-frontmatter",
-    "httpx",
+    "python-slugify",
+    "playwright",
 ]

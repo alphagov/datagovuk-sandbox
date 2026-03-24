@@ -1,46 +1,67 @@
-import asyncio
 import csv
 import click
-import httpx
-
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
-from scripts.config import COLLECTIONS_CSV, RESULTS_CSV, RESULTS_DIR
+
+from playwright.sync_api import sync_playwright
+
+from scripts.config import COLLECTION_URL, COLLECTIONS_CSV, RESULTS_CSV, RESULTS_DIR
 
 
-USER_AGENT = (
-    "Mozilla/5.0 (compatible; datagovuk-link-checker/0.1; "
-    "+https://github.com/alphagov/datagovuk-data-prototype)"
-)
+def get_page_hrefs(page) -> set[str]:
+    """Extract all href attributes from <a> tags on the current page."""
+    return set(
+        href
+        for href in page.eval_on_selector_all("a[href]", "els => els.map(e => e.href)")
+        if href
+    )
 
 
-async def check_http_statuses(rows: list[dict], timeout: int, concurrency: int):
-    semaphore = asyncio.Semaphore(concurrency)
+def check_reachable(page, url: str) -> bool:
+    """Navigate to a URL and return True if the response status is < 400."""
+    try:
+        resp = page.goto(url, wait_until="domcontentloaded", timeout=15000)
+        return resp is not None and resp.status < 400
+    except Exception:
+        return False
 
-    async def check_one(client: httpx.AsyncClient, row: dict):
-        async with semaphore:
-            url = row["url"]
+
+def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int = 0):
+    rows_by_page = defaultdict(list)
+    for row in rows:
+        rows_by_page[(row["collection"], row["slug"])].append(row)
+
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=not headed, slow_mo=slow_mo)
+        context = browser.new_context()
+        page = context.new_page()
+
+        for (collection, slug), slug_rows in rows_by_page.items():
+            collection_page_url = f"{COLLECTION_URL}/{collection}/{slug}"
+            click.echo(f"  Checking {collection_page_url}")
+
             try:
-                resp = await client.head(url, follow_redirects=True)
-                # Fall back to GET if HEAD is rejected
-                if resp.status_code in (403, 405):
-                    head_status = resp.status_code
-                    resp = await client.get(url, follow_redirects=True)
-                    if resp.status_code >= 400:
-                        row["notes"] = "Unable to verify"
-                        row["status-code"] = head_status
-                        return
-                row["status-code"] = resp.status_code
-                if resp.status_code >= 400:
-                    row["notes"] = f"HTTP {resp.status_code}"
-            except httpx.TimeoutException:
-                row["notes"] = "Request timed out"
-            except httpx.HTTPError:
-                row["status-code"] = "http error"
+                page.goto(collection_page_url, wait_until="domcontentloaded", timeout=15000)
+                hrefs = get_page_hrefs(page)
+            except Exception as exc:
+                click.echo(f"    Could not load page: {exc}", err=True)
+                for row in slug_rows:
+                    row["on-page"] = ""
+                    row["reachable"] = ""
+                continue
 
-    headers = {"User-Agent": USER_AGENT}
-    async with httpx.AsyncClient(timeout=timeout, headers=headers) as client:
-        await asyncio.gather(*(check_one(client, row) for row in rows))
+            for row in slug_rows:
+                url = row["url"]
+                row["on-page"] = url in hrefs
+
+            # Check reachability in a separate tab
+            check_page = context.new_page()
+            for row in slug_rows:
+                row["reachable"] = check_reachable(check_page, row["url"])
+            check_page.close()
+
+        browser.close()
 
 
 @click.command()
@@ -50,28 +71,24 @@ async def check_http_statuses(rows: list[dict], timeout: int, concurrency: int):
     default=str(COLLECTIONS_CSV),
     help="Input CSV path.",
 )
-@click.option("--timeout", default=10, help="HTTP request timeout in seconds.")
-@click.option("--concurrency", default=10, help="Max concurrent requests.")
-def check_urls(input_path, timeout, concurrency):
+@click.option("--headed", is_flag=True, default=False, help="Run browser in headed mode.")
+@click.option("--slow-mo", default=500, help="Delay between actions in ms (headed mode).")
+def check_urls(input_path, headed, slow_mo):
     path = Path(input_path)
     if not path.exists():
         raise click.ClickException(f"CSV not found: {path}")
 
     with open(path, newline="") as f:
-        reader = csv.DictReader(f)
-        rows = list(reader)
+        rows = list(csv.DictReader(f))
 
-    for row in rows:
-        row.setdefault("status-code", "")
-        row.setdefault("notes", "")
+    click.echo(f"Checking {len(rows)} URLs across collection pages...")
+    check_collection_pages(rows, headed=headed, slow_mo=slow_mo if headed else 0)
 
-    click.echo(f"Checking {len(rows)} URLs...")
-    asyncio.run(check_http_statuses(rows, timeout=timeout, concurrency=concurrency))
+    on_page = sum(1 for r in rows if r.get("on-page") is True)
+    reachable = sum(1 for r in rows if r.get("reachable") is True)
+    click.echo(f"Results: {on_page}/{len(rows)} on page, {reachable}/{len(rows)} reachable")
 
-    ok = sum(1 for r in rows if str(r.get("status-code", "")).startswith(("2", "3")))
-    click.echo(f"Results: {ok}/{len(rows)} OK")
-
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%S")
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M")
     out = RESULTS_DIR / f"collection-check-{timestamp}.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
 
