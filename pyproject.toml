@@ -9,6 +9,3 @@ dependencies = [
     "python-frontmatter",
     "httpx",
 ]
-
-[project.scripts]
-datagovuk-data = "scripts.cli:cli"

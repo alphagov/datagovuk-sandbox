@@ -1,0 +1,33 @@
+name: Check collection URLs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - run: uv sync
+
+      - name: Generate collection CSV
+        run: uv run python -m scripts.cli get-collection-urls
+
+      - name: Check URL liveness
+        run: uv run python -m scripts.cli check-urls
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/collections/collection-urls.csv data/results/
+          git diff --cached --quiet || git commit -m "Update collection URLs and check results"
+          git push
