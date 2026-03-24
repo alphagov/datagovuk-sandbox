@@ -8,22 +8,38 @@ from pathlib import Path
 from scripts.config import COLLECTIONS_CSV, RESULTS_CSV, RESULTS_DIR
 
 
+USER_AGENT = (
+    "Mozilla/5.0 (compatible; datagovuk-link-checker/0.1; "
+    "+https://github.com/alphagov/datagovuk-data-prototype)"
+)
+
+
 async def check_http_statuses(rows: list[dict], timeout: int, concurrency: int):
     semaphore = asyncio.Semaphore(concurrency)
 
     async def check_one(client: httpx.AsyncClient, row: dict):
         async with semaphore:
+            url = row["url"]
             try:
-                resp = await client.head(row["url"], follow_redirects=True)
+                resp = await client.head(url, follow_redirects=True)
+                # Fall back to GET if HEAD is rejected
+                if resp.status_code in (403, 405):
+                    head_status = resp.status_code
+                    resp = await client.get(url, follow_redirects=True)
+                    if resp.status_code >= 400:
+                        row["notes"] = "Unable to verify"
+                        row["status-code"] = head_status
+                        return
                 row["status-code"] = resp.status_code
                 if resp.status_code >= 400:
-                    row["notes"] = "Page not found"
+                    row["notes"] = f"HTTP {resp.status_code}"
             except httpx.TimeoutException:
                 row["notes"] = "Request timed out"
             except httpx.HTTPError:
                 row["status-code"] = "http error"
 
-    async with httpx.AsyncClient(timeout=timeout) as client:
+    headers = {"User-Agent": USER_AGENT}
+    async with httpx.AsyncClient(timeout=timeout, headers=headers) as client:
         await asyncio.gather(*(check_one(client, row) for row in rows))
 
 
