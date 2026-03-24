@@ -1,0 +1,14 @@
+[project]
+name = "datagovuk-data-prototype"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click",
+    "python-frontmatter",
+    "httpx",
+]
+
+[project.scripts]
+datagovuk-data = "scripts.cli:cli"
