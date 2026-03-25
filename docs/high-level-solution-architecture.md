@@ -83,7 +83,7 @@ The key constraint is that the pipeline from merge to production must be streaml
 
 ## What this approach enables
 
-Running a Django application rather than a static site removes several categories of infrastructure complexity and incremental evolution paths are available.
+Running a Django application rather than a static site removes several categories of infrastructure complexity and incremental evolution paths are still available.
 
 ### Migration path to a database and admin interface
 
