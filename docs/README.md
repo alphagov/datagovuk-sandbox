@@ -2,7 +2,7 @@
 
 ## High level architecture
 
-[high-level-solution-architecture.md](high-level-solution-architecture.md) -- Django web app serving markdown content, deployed to EKS with Fastly CDN.
+[high-level-solution-architecture.md](high-level-solution-architecture.md) - Django web app serving markdown content, deployed to EKS with Fastly CDN.
 
 ## Archived docs
 
