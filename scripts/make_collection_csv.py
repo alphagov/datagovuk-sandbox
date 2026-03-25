@@ -31,7 +31,7 @@ def extract_urls(metadata: dict, collection: str, slug: str) -> list[dict]:
                 {
                     "collection": collection,
                     "slug": slug,
-                    "url": url,
+                    "link-url": url,
                     "link-text": text,
                     "type": "website",
                 }
@@ -49,7 +49,7 @@ def extract_urls(metadata: dict, collection: str, slug: str) -> list[dict]:
                     {
                         "collection": collection,
                         "slug": slug,
-                        "url": url,
+                        "link-url": url,
                         "link-text": text,
                         "type": field_type,
                     }
@@ -67,7 +67,7 @@ def extract_urls(metadata: dict, collection: str, slug: str) -> list[dict]:
                         {
                             "collection": collection,
                             "slug": slug,
-                            "url": url,
+                            "link-url": url,
                             "link-text": link_text,
                             "type": field_type,
                         }
@@ -87,10 +87,7 @@ def get_urls(collections_dir: Path) -> list[dict]:
                 f_matter = frontmatter.load(str(md_file))
             except Exception as exc:
                 click.echo(f"Skipping {md_file}: {exc}", err=True)
-                continue
-            title = f_matter.metadata.get("title", md_file.stem)
-            slug = slugify(title)
-            rows.extend(extract_urls(f_matter.metadata, collection, slug))
+            rows.extend(extract_urls(f_matter.metadata, collection, md_file.stem))
     return rows
 
 

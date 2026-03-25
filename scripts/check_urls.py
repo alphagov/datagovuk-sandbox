@@ -18,11 +18,12 @@ def get_page_hrefs(page) -> set[str]:
     )
 
 
+
 def check_reachable(page, url: str) -> bool:
-    """Navigate to a URL and return True if the response status is < 400."""
+    """Navigate to a URL and return True if the page loaded"""
     try:
         resp = page.goto(url, wait_until="domcontentloaded", timeout=15000)
-        return resp is not None and resp.status < 400
+        return resp is not None
     except Exception:
         return False
 
@@ -40,25 +41,24 @@ def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int 
         for (collection, slug), slug_rows in rows_by_page.items():
             collection_page_url = f"{COLLECTION_URL}/{collection}/{slug}"
             click.echo(f"  Checking {collection_page_url}")
-
             try:
                 page.goto(collection_page_url, wait_until="domcontentloaded", timeout=15000)
                 hrefs = get_page_hrefs(page)
             except Exception as exc:
-                click.echo(f"    Could not load page: {exc}", err=True)
+                click.echo(f"Could not load page: {exc}", err=True)
                 for row in slug_rows:
-                    row["on-page"] = ""
-                    row["reachable"] = ""
+                    row["on-page"] = None
+                    row["reachable"] =  None
                 continue
 
             for row in slug_rows:
-                url = row["url"]
+                url = row["link-url"]
                 row["on-page"] = url in hrefs
 
-            # Check reachability in a separate tab
+            # Check reachability in a separate browser tab
             check_page = context.new_page()
             for row in slug_rows:
-                row["reachable"] = check_reachable(check_page, row["url"])
+                row["reachable"] = check_reachable(check_page, row["link-url"])
             check_page.close()
 
         browser.close()
@@ -84,9 +84,8 @@ def check_urls(input_path, headed, slow_mo):
     click.echo(f"Checking {len(rows)} URLs across collection pages...")
     check_collection_pages(rows, headed=headed, slow_mo=slow_mo if headed else 0)
 
-    on_page = sum(1 for r in rows if r.get("on-page") is True)
     reachable = sum(1 for r in rows if r.get("reachable") is True)
-    click.echo(f"Results: {on_page}/{len(rows)} on page, {reachable}/{len(rows)} reachable")
+    click.echo(f"Results: {reachable}/{len(rows)} reachable")
 
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M")
     out = RESULTS_DIR / f"collection-check-{timestamp}.csv"

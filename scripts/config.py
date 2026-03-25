@@ -1,6 +1,6 @@
 from pathlib import Path
 
-COLLECTION_CSV_FIELDS = ["collection", "slug", "url", "link-text", "type"]
+COLLECTION_CSV_FIELDS = ["collection", "slug", "link-url", "link-text", "type"]
 RESULTS_CSV = COLLECTION_CSV_FIELDS + ["on-page", "reachable"]
 
 DATA_GOV_URL = "https://data.gov.uk"
