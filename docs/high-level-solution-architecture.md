@@ -12,8 +12,8 @@ The solution is a full-stack Django web application with a deliberately minimal 
 ```mermaid
 flowchart LR
     editor([Editors])
-    repo[("Github repository\n(markdown content)")]
-    app["Django app\n(renders markdown)"]
+    repo[("Github repository\n(application + markdown content)")]
+    app["Django app\n(renders markdown dynamically)"]
     visitor([Visitors])
 
     editor -->|Edit markdown via PR| repo
