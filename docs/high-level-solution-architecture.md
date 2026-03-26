@@ -46,7 +46,7 @@ flowchart LR
     github -->|Trigger build| cicd
     cicd -->|Build & push| image
     image -->|Deploy| eks
-    eks -->|Origin| cdn
+    cdn -->|Origin| eks
     visitor -->|Request pages| cdn
 
     classDef user fill:#2D6A4F,stroke:#1B4332,color:#FFFFFF
@@ -60,8 +60,8 @@ Because markdown content is bundled inside the application image, every content 
 **Promotion flow:**
 
 1. **Merge to `main`** - already automatically deploys to the **integration** environment. No manual intervention required.
-2. **Integration to staging** - the integration deployment automatically sets up a stage gate for staging promotion. A human accepts/triggers the promotion, but the gate is created without manual setup of copying tags/shas.
-3. **Staging to production** - same pattern: the staging deployment sets up the production gate automatically; a human accepts/triggers the promotion.
+2. **Integration to staging** - the integration deployment should be updated to up a stage gate for staging promotion. Someone then can accept & trigger the promotion. The gate should be created without manual via copying tags/shas.
+3. **Staging to production** - same pattern: the staging deployment sets up the production gate for someone to accept & triggers the promotion.
 
 ```mermaid
 flowchart LR
