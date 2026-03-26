@@ -4,9 +4,9 @@
 
 The solution is a full-stack Django web application with a deliberately minimal footprint:
 
-- **No database** - there is no persistence layer needed at this stage.
-- **No admin interface** - content is not managed through the application.
-- **Markdown as content** - pages are authored as markdown files that live in the application repository. The Django app renders them dynamically on each request.
+- **No database** - there will be no persistence layer needed at this stage.
+- **No admin interface** - content will not be managed through the application.
+- **Markdown as content** - pages are to be authored as markdown files that live in the application repository. The Django application then renders them dynamically on each request.
 - **Content editing happens in Github** - editors work with markdown files directly in the Github, using pull requests for review.
 
 ```mermaid
@@ -26,10 +26,10 @@ flowchart LR
 
 ## Deployment
 
-The application lives in a new repository (separate from this current find application repo). It is containerised and deployed into an existing EKS cluster.
+The application will be in a new repository (separate from this current find application repo). It will be containerised and deployed into an existing EKS cluster.
 
 - **Docker image** built in CI/CD on merge to `main`.
-- **EKS pods** runs the Django app in the existing cluster.
+- **EKS pods** runs the Django application in the existing cluster.
 - **Fastly CDN** sits in front of the application
 
 ```mermaid
@@ -55,7 +55,7 @@ flowchart LR
 
 ## Deployment pipeline
 
-Because markdown content is bundled inside the application image, every content change requires an application deployment. The pipeline therefore needs to be as quick and frictionless as possible.
+Because markdown content will be bundled inside the application image, every content change requires an application deployment. The pipeline therefore needs to be as quick and frictionless as possible.
 
 **Promotion flow:**
 
@@ -85,7 +85,7 @@ Note in the longer term we should aim towards a continuous delivery model enable
 
 ## What this approach enables
 
-Running a Django application rather than a static site removes several categories of infrastructure complexity and incremental evolution paths are still available.
+Running a Django application rather than a static site exchanges some of the operational/infrastructure benefits for more direct incremental evolution options.
 
 ### Migration path to a database and admin interface
 
