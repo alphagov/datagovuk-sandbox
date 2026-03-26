@@ -21,7 +21,7 @@ Downloaded file:
 
 Table A8 can be extracted to create this CSV:
 
-[Companies_register_activities_April_2024_to_March_2025_table_A8.csv](Companies_register_activities_April_2024_to_March_2025_table_A8.csv) 
+[Companies_register_activities_April_2024_to_March_2025_table_A8.csv](reference/Companies_register_activities_April_2024_to_March_2025_table_A8.csv) 
 
 The extract is last two financial years, so go back to original if more or different data needed.
 
@@ -61,7 +61,7 @@ Data was downloaded from here:
 
 This local copy of the CSV file is linked on that page:
 
-[Average-prices-2025-11.csv](Average-prices-2025-11.csv)
+[Average-prices-2025-11.csv](reference/Average-prices-2025-11.csv)
 
 Original file url [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv?utm_medium=GOV.UK&utm_source=datadownload)
 
@@ -97,7 +97,7 @@ Data downloads linked here:
 
 Downloaded CSV file:
 
-[parties-general-election-04-07-2024.csv](parties-general-election-04-07-2024.csv)
+[parties-general-election-04-07-2024.csv](reference/parties-general-election-04-07-2024.csv)
 
 
 Data can be sliced and diced in several ways, for example by showing % of vote for party, number of seats etc.
@@ -124,7 +124,7 @@ Table 4.1.2 is IMHO the simplest to work with. I exported the table 4.1.2 as csv
 
 CSV extract of Table 4.1.2 here:
 
-[4.1.2-Table_1.csv](4.1.2-Table_1.csv)
+[4.1.2-Table_1.csv](reference/4.1.2-Table_1.csv)
 
 Could plot a graph of petrol and diesel prices. Other petrol types available as are various oil types in source data. 
 
@@ -143,7 +143,7 @@ This seems to be a stable page so it looks like we won't get a list of documents
 
 JSON file here:
 
-[sector-overview-response.json](sector-overview-response.json)
+[sector-overview-response.json](reference/sector-overview-response.json)
 
 That file is the response from:
 
@@ -174,7 +174,7 @@ Download link:
 
 [https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23](https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23)
 
-CSV: [series-230226.csv](series-230226.csv) 
+CSV: [series-230226.csv](reference/series-230226.csv) 
 
 Lines 0 to 8 have been used by ONS to add metadata about the series. The information is of interest and this is something folks do, however it's irritating tbh.
 
