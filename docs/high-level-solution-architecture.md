@@ -79,7 +79,9 @@ flowchart LR
     gate2 --> prod
 ```
 
-The key constraint is that the pipeline from merge to production must be streamlined enough that content updates aren't held up by complex manual promotion processes.
+A key concern and requirement is that the pipeline from merge to production must be streamlined enough that content updates aren't held up by a complex manual promotion processes.
+
+Note in the longer term we should aim towards a continuous delivery model enabled by automated testing, especially as the site is a relatively simple content site.
 
 ## What this approach enables
 
@@ -89,22 +91,22 @@ Running a Django application rather than a static site removes several categorie
 
 The solution starts with no database, but Django makes it straightforward to add one if needed. 
 
-If the volume of content grows such that content editing via github becomes to onerous, frontmatter metadata and page content can be migrated into PostgreSQL and a lightweight admin interface built, without changing the hosting or deployment model. The app is already running; adding a database is a configuration change, not an architecture change. Even if the complexity of the site reaches the point that a full blown CMS is needed, there are upgrade paths for example to Wagtail which is a Django based CMS.
+If the volume of content grows such that content editing via github becomes toO onerous, frontmatter metadata and page content can be migrated into PostgreSQL and a lightweight admin interface built, without changing the hosting or deployment model. Even if the complexity of the site reaches the point that a full blown CMS is needed, there are upgrade paths for example to Wagtail which is a Django based CMS.
 
 ### Search without additional infrastructure
 
 With a static site, search requires a separate indexing pipeline, a search service (e.g. OpenSearch), and an API layer (Lambda + API Gateway) to query it. 
 
-A Django app can implement search server side, hether that's simple content scanning for a small number of pages or a database backed search index later. If search needs scale beyond what the app can handle directly, content can be pushed to an AWS managed search offering from the application itself, keeping the indexing pipeline simple and avoiding the need for separate Lambda functions or API Gateway layers.
+A Django application can implement search server side, whether that's simple content scanning for a small number of pages or a database backed search index later. If search needs scale beyond what the application can handle directly, content can be pushed to an AWS managed search service from the application itself. This keeps the indexing pipeline simple and avoids the need for separate Lambda functions or API Gateway layers.
 
 ### Redirects in application code
 
-Redirects are handled natively in Django's URL configuration or views. There is no need for CDN level or reverse proxy URL rewriting (Cloudfront Functions, Lambda@Edge, or Fastly VCL) to manage redirect rules. Adding, changing, or removing redirects is a code change.
+Redirects can be handled natively in Django's URL configuration or views. There is no need for CDN level or reverse proxy URL rewriting (Cloudfront Functions, Lambda@Edge, or Fastly VCL) to manage redirect rules. Adding, changing, or removing redirects is a code change.
 
 ### Clean URL routing
 
-Static sites on S3 require careful handling of trailing slashes, `index.html` conventions, and Cloudfront Functions to normalise URLs. Django's URL routing handles clean URLs (`/collection/business-and-economy`) natively with no CDN configuration needed.
+Static sites on S3 require careful handling of trailing slashes, `index.html` conventions, and possibly Cloudfront Functions to normalise URLs. Django's URL routing handles clean URLs (`/collection/business-and-economy`) natively with no CDN configuration needed.
 
 ### Simplified security model
 
-The previously discussed static site approach required Github Actions to have write access to an S3 bucket in AWS, raising questions about cross account access and credential management. With content bundled in the Docker image, the deployment pipeline pushes a container image to a registry and deploys to EKS, a standard CI/CD pattern that doesn't require granting external systems direct access to serving infrastructure.
+The previously discussed static site approach required Github Actions to have write access to an S3 bucket in AWS, which requires consideration of cross account access and credential management. With content bundled in the Docker image, the deployment pipeline pushes a container image to a registry and deploys to EKS, a standard CI/CD pattern that doesn't require granting external systems direct access to serving infrastructure.
