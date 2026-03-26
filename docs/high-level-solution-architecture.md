@@ -13,11 +13,11 @@ The solution is a full-stack Django web application with a deliberately minimal 
 flowchart LR
     editor([Editors])
     repo[("Github repository\n(application + markdown content)")]
-    app["Django app\n(renders markdown dynamically)"]
+    app["Django application\n(renders markdown dynamically)"]
     visitor([Visitors])
 
     editor -->|Edit markdown via PR| repo
-    repo -->|Content bundled in app| app
+    repo -->|Content bundled in application| app
     visitor -->|Request pages| app
 
     classDef user fill:#2D6A4F,stroke:#1B4332,color:#FFFFFF
@@ -26,7 +26,7 @@ flowchart LR
 
 ## Deployment
 
-The application will be in a new repository (separate from this current find application repo). It will be containerised and deployed into an existing EKS cluster.
+The application will be in a new repository (separate from this current find application repo). It will be containerised and deployed into the existing EKS cluster.
 
 - **Docker image** built in CI/CD on merge to `main`.
 - **EKS pods** runs the Django application in the existing cluster.
