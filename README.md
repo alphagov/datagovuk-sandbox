@@ -1,6 +1,11 @@
-# Datagovuk data prototype
+# Datagovuk data prototypes
+
+## Test data vistualisations
 
 The [data](data) directory is used for testing data to be used in visualisations.
+
+
+## Architecture docs
 
 Architecture [docs](docs)
 
