@@ -4,15 +4,27 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+from urllib.parse import urlparse, urlunparse, unquote
+
 from playwright.sync_api import sync_playwright
 
 from scripts.config import COLLECTION_URL, COLLECTIONS_CSV, RESULTS_CSV, RESULTS_DIR
 
 
+def normalize_url(url: str) -> str:
+    """Normalize a URL for comparison: lowercase scheme/host, strip trailing slash, decode percent-encoding."""
+    url = unquote(url).strip()
+    parsed = urlparse(url)
+    host = parsed.hostname or ""
+    host = host.removeprefix("www.")
+    path = parsed.path.rstrip("/")
+    return urlunparse((parsed.scheme.lower(), host, path, parsed.params, parsed.query, ""))
+
+
 def get_page_hrefs(page) -> set[str]:
     """Extract all href attributes from <a> tags on the current page."""
     return set(
-        href
+        normalize_url(href)
         for href in page.eval_on_selector_all("a[href]", "els => els.map(e => e.href)")
         if href
     )
@@ -52,7 +64,7 @@ def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int 
                 continue
 
             for row in slug_rows:
-                url = row["link-url"]
+                url = normalize_url(row["link-url"])
                 row["on-page"] = url in hrefs
 
             # Check reachability in a separate browser tab

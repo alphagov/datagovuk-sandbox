@@ -1,86 +1,16 @@
 
 # data.gov.uk collection page checks
-                    
+
+This test uses Playwright to check the [collection content files](https://github.com/alphagov/datagovuk_find/tree/main/app/content/collections) from the datagovuk_find repository. 
+
+It visits the rendered html of each collection page on data.gov.uk and verifies that:
+
+- the links listed in the frontmatter are rendered on the page
+- that those links are reachable.
+
 ## Report
-                    
-[collection-check-2026-03-27T1333.csv](collection-check-2026-03-27T1333.csv)
-                    
 
-## Weather
-Page: [https://data.gov.uk/collections/environment/weather](https://data.gov.uk/collections/environment/weather)
+[collection-check-2026-03-27T1346.csv](collection-check-2026-03-27T1346.csv)
 
 
-Check the following links are on the page above - the test does report false positives:
-
-- https://www.metoffice.gov.uk
-
-- https://datahub.metoffice.gov.uk
-
-- https://climate-themetoffice.hub.arcgis.com
-
-
-            
-              
- 
-## Land and property ownership
-Page: [https://data.gov.uk/collections/land-and-property/land-and-property-ownership](https://data.gov.uk/collections/land-and-property/land-and-property-ownership)
-
-
-Check the following links are on the page above - the test does report false positives:
-
-- https://use-land-property-data.service.gov.uk
-
-- https://www.ros.gov.uk
-
-
-            
-              
- 
-## Planning data
-Page: [https://data.gov.uk/collections/land-and-property/planning-data](https://data.gov.uk/collections/land-and-property/planning-data)
-
-
-Check the following links are on the page above - the test does report false positives:
-
-- https://www.planning.data.gov.uk
-
-
-            
-              
- 
-## Family food statistics
-Page: [https://data.gov.uk/collections/people/family-food-statistics](https://data.gov.uk/collections/people/family-food-statistics)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.gov.uk/government/statistics/family-food-open-data](https://www.gov.uk/government/statistics/family-food-open-data)
-
-              
- 
-## Pupil attendance
-Page: [https://data.gov.uk/collections/people/pupil-attendance](https://data.gov.uk/collections/people/pupil-attendance)
-
-
-Check the following links are on the page above - the test does report false positives:
-
-- https://explore-education-statistics.service.gov.uk
-
-
-            
-              
- 
-## Road traffic
-Page: [https://data.gov.uk/collections/transport/road-traffic](https://data.gov.uk/collections/transport/road-traffic)
-
-
-Check the following links are on the page above - the test does report false positives:
-
-- https://roadtraffic.dft.gov.uk
-
-
-            
-              
- 
+No issues reported
