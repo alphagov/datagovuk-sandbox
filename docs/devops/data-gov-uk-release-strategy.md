@@ -49,14 +49,12 @@ flowchart LR
     C --> E[Release Branch]
     E --> F[Integration]
     F --> G[STAGING]
+    G --> H[Main Branch]
+    H --> I[PROD]
 
-
-    H --> I[Main Branch]
-    I --> J[PROD]
-
-    I --> K[Hotfix Branch]
-    K --> I
-    K --> C
+    H --> J[Hotfix Branch]
+    J --> H
+    J --> C
 ```
 
 ---
