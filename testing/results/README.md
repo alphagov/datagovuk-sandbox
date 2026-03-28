@@ -11,7 +11,7 @@ The tests visit the rendered html of each collection page on data.gov.uk and ens
                     
 ## Report
 
-Using test results file: [collection-check-2026-03-27T1355.csv](collection-check-2026-03-27T1355.csv)
+Using test results file: [collection-check-2026-03-28T0632.csv](collection-check-2026-03-28T0632.csv)
 
 
 
