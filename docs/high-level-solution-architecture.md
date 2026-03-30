@@ -55,6 +55,9 @@ flowchart LR
 
 ## Deployment pipeline
 
+> [!IMPORTANT]
+> This is a simplified version of a deployment pipeline. A more complete and robust design is being worked by SRE and will be linked to from here for discussion.
+
 Because markdown content will be bundled inside the application image, every content change requires an application deployment. The pipeline therefore needs to be as quick and frictionless as possible.
 
 **Promotion flow:**
