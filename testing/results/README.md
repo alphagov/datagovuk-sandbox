@@ -1,9 +1,11 @@
 
 # data.gov.uk collection page checks
                     
-This test uses Playwright to check the [collection content files](https://github.com/alphagov/datagovuk_find/tree/main/app/content/collections) from the datagovuk_find repository. 
+This test uses Playwright to check the [collection content files](https://github.com/alphagov/datagovuk_find/tree/main/app/content/collections) from the datagovuk_find repository.
 
-The tests visit the rendered html of each collection page on data.gov.uk and ensures that:
+It fetches those files, extracts the list of urls (webistes, api, dataset) referred to the markdown frontmatter.
+
+The tests visit the rendered html version of each collection page on data.gov.uk and ensures that:
 
 - the links listed in the frontmatter are rendered on the page
 - that those links are reachable
@@ -11,7 +13,7 @@ The tests visit the rendered html of each collection page on data.gov.uk and ens
                     
 ## Report
 
-Using test results file: [collection-check-2026-03-30T0651.csv](collection-check-2026-03-30T0651.csv)
+Using test results file: [collection-check-2026-03-31T0642.csv](collection-check-2026-03-31T0642.csv)
 
 
 
