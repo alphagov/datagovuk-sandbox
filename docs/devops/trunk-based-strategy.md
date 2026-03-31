@@ -10,7 +10,7 @@
 
 ## Overview
 
-This document outlines a trunk-based branching strategy as a potential alternative to the GitFlow-like approach documented in `data-gov-uk-release-strategy.md`. The goal is to evaluate whether a simpler model could reduce overhead, shorten feedback loops, and move the team closer to a continuous delivery model.
+This document outlines a trunk-based branching strategy as a potential alternative to the GitFlow-like approach documented in [data-gov-uk-release-strategy.md](data-gov-uk-release-strategy.md). The goal is to evaluate whether a simpler model could reduce overhead, shorten feedback loops, and move the team closer to a continuous delivery model.
 
 ---
 
