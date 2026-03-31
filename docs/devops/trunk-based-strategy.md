@@ -67,9 +67,7 @@ Key enablers:
 
 ## Branch Protection
 
-- Minimum 2 approvals on PRs to `main`
 - CI checks must pass before merge
-- No direct push to `main`
 - Auto delete merged branches
 
 ---
