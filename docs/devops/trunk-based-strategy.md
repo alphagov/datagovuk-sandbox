@@ -72,17 +72,6 @@ Key enablers:
 
 ---
 
-## Open question: DEV Environment
-
-The current infrastructure has three environments: integration, staging, and prod. A DEV environment is not yet provisioned but could provide an earlier feedback loop, particularly for testing infrastructure dependent behaviour before changes reach integration.
-
-Key decisions needed:
-
-- Does DEV deploy from feature branches (pre-merge validation) or from `main` (post-merge)? - we currentl do this from time to time manually
-- What infrastructure is required, and who owns/provisions it?
-
----
-
 ## Summary
 
 Trunk based branching trades the structure and ceremony of GitFlow for speed and simplicity. It may suit teams that want to move towards continuous delivery, but it demands investment in automated testing and CI to maintain confidence in the trunk.
