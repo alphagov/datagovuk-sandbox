@@ -20,7 +20,9 @@ def normalize_url(url: str) -> str:
     host = parsed.hostname or ""
     host = host.removeprefix("www.")
     path = parsed.path.rstrip("/")
-    return urlunparse((parsed.scheme.lower(), host, path, parsed.params, parsed.query, ""))
+    return urlunparse(
+        (parsed.scheme.lower(), host, path, parsed.params, parsed.query, "")
+    )
 
 
 def get_page_hrefs(page) -> set[str]:
@@ -30,7 +32,6 @@ def get_page_hrefs(page) -> set[str]:
         for href in page.eval_on_selector_all("a[href]", "els => els.map(e => e.href)")
         if href
     )
-
 
 
 def check_reachable(page, url: str) -> bool:
@@ -56,13 +57,15 @@ def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int 
             collection_page_url = f"{COLLECTION_URL}/{collection}/{slug}"
             click.echo(f"  Checking {collection_page_url}")
             try:
-                page.goto(collection_page_url, wait_until="domcontentloaded", timeout=15000)
+                page.goto(
+                    collection_page_url, wait_until="domcontentloaded", timeout=15000
+                )
                 hrefs = get_page_hrefs(page)
             except Exception as exc:
                 click.echo(f"Could not load page: {exc}", err=True)
                 for row in slug_rows:
                     row["on-page"] = None
-                    row["reachable"] =  None
+                    row["reachable"] = None
                 continue
 
             for row in slug_rows:
@@ -85,8 +88,12 @@ def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int 
     default=str(COLLECTIONS_CSV),
     help="Input CSV path.",
 )
-@click.option("--headed", is_flag=True, default=False, help="Run browser in headed mode.")
-@click.option("--slow-mo", default=500, help="Delay between actions in ms (headed mode).")
+@click.option(
+    "--headed", is_flag=True, default=False, help="Run browser in headed mode."
+)
+@click.option(
+    "--slow-mo", default=500, help="Delay between actions in ms (headed mode)."
+)
 def check_urls(input_path, headed, slow_mo):
     path = Path(input_path)
     if not path.exists():

@@ -1,12 +1,15 @@
-import csv
 import subprocess
 import tempfile
 from pathlib import Path
-from scripts.config import COLLECTION_CSV_FIELDS, COLLECTIONS_CSV, COLLECTIONS_SUBDIR, REPO_URL
+from scripts.config import (
+    COLLECTION_CSV_FIELDS,
+    COLLECTIONS_CSV,
+    COLLECTIONS_SUBDIR,
+    REPO_URL,
+)
 
 import click
 import frontmatter
-from slugify import slugify
 
 from scripts.utils import write_output
 

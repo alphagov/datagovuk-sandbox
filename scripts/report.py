@@ -46,9 +46,11 @@ The following links were not reachable during test
 {% endif %}
 """)
 
+
 def _get_most_recent_result(directory):
     latest = max(directory.glob("*.csv"), key=lambda f: f.stat().st_mtime)
     return latest
+
 
 def _write_markdown(source, report, template, base_url, output_dir):
     md_file_path = output_dir / "README.md"
@@ -57,7 +59,6 @@ def _write_markdown(source, report, template, base_url, output_dir):
         content = template.render(context)
         f.write(content)
 
-    
 
 @click.command()
 def create_report():
@@ -67,15 +68,17 @@ def create_report():
     with open(latest) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if row["on-page"] == 'False' or row["reachable"] == 'False':
+            if row["on-page"] == "False" or row["reachable"] == "False":
                 slug = row["slug"]
                 if slug not in report:
-                    report[slug] = {"collection": row["collection"], "not-on-page": [], "not-reachable": []}
-                if row["on-page"] == 'False':
+                    report[slug] = {
+                        "collection": row["collection"],
+                        "not-on-page": [],
+                        "not-reachable": [],
+                    }
+                if row["on-page"] == "False":
                     report[slug]["not-on-page"].append(row["link-url"])
-                if row["reachable"] == 'False':
+                if row["reachable"] == "False":
                     report[slug]["not-reachable"].append(row["link-url"])
 
-
     _write_markdown(latest.name, report, template, COLLECTION_URL, TESTING_DIR)
-

@@ -10,4 +10,5 @@ dependencies = [
     "python-slugify",
     "playwright",
     "jinja2>=3.1.6",
+    "ruff>=0.15.8",
 ]
