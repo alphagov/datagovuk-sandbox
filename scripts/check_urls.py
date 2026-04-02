@@ -1,4 +1,5 @@
 import csv
+
 import click
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -9,6 +10,7 @@ from urllib.parse import urlparse, urlunparse, unquote
 from playwright.sync_api import sync_playwright
 
 from scripts.config import COLLECTION_URL, COLLECTIONS_CSV, RESULTS_CSV, RESULTS_DIR
+from scripts.utils import write_output
 
 
 def normalize_url(url: str) -> str:
@@ -100,12 +102,6 @@ def check_urls(input_path, headed, slow_mo):
     click.echo(f"Results: {reachable}/{len(rows)} reachable")
 
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M")
-    out = RESULTS_DIR / f"collection-check-{timestamp}.csv"
-    out.parent.mkdir(parents=True, exist_ok=True)
-
-    with open(out, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=RESULTS_CSV)
-        writer.writeheader()
-        writer.writerows(rows)
-
-    click.echo(f"Wrote {len(rows)} rows to {out}")
+    output_path = RESULTS_DIR / f"collection-check-{timestamp}.csv"
+    write_output(output_path, rows, RESULTS_CSV)
+    click.echo(f"Wrote {len(rows)} rows to {output_path}")

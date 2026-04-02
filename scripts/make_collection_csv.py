@@ -8,6 +8,8 @@ import click
 import frontmatter
 from slugify import slugify
 
+from scripts.utils import write_output
+
 
 def clone_repo(repo_url: str, branch: str, dest: Path):
     subprocess.run(
@@ -105,11 +107,5 @@ def get_collection_urls(branch):
         click.echo(f"Found {len(rows)} URLs across all collections.")
 
         output_path = Path(COLLECTIONS_CSV)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-
-        with open(output_path, "w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=COLLECTION_CSV_FIELDS)
-            writer.writeheader()
-            writer.writerows(rows)
-
+        write_output(output_path, rows, COLLECTION_CSV_FIELDS)
         click.echo(f"Wrote {len(rows)} rows to {output_path}")
