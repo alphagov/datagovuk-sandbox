@@ -2,7 +2,7 @@ import csv
 import click
 
 from jinja2 import Template
-from scripts.config import RESULTS_DIR, COLLECTION_URL
+from scripts.config import RESULTS_DIR, COLLECTION_URL, TESTING_DIR
 
 
 template = Template("""
@@ -20,7 +20,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [{{source}}]({{source}})
+Using test results file: [results/{{source}}](results/{{source}})
 
 {% if not report %}
 No issues reported
@@ -77,5 +77,5 @@ def create_report():
                     report[slug]["not-reachable"].append(row["link-url"])
 
 
-    _write_markdown(latest.name, report, template, COLLECTION_URL, RESULTS_DIR)
+    _write_markdown(latest.name, report, template, COLLECTION_URL, TESTING_DIR)
 
