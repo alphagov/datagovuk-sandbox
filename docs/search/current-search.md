@@ -58,7 +58,7 @@ Five facets, all using CKAN's builtin faceting, no custom `IFacets` implemented.
 
 ## Customisations
 
-The plugin (`ckanext/datagovuk/plugin.py`) implements `IPackageController` with a `before_dataset_index` hook that truncates string fields to 15,000 chars before indexing (to stay within Solr 6's string field limit).
+The plugin (`ckanext/datagovuk/plugin.py`) implements `IPackageController` with a `before_dataset_index` hook that truncates string fields to 15,000 chars before indexing (to stay within Solr 6's string field limit or so the comment claims).
 
 Limit set in `ckanext/datagovuk/schema.py`
 
