@@ -6,7 +6,28 @@ Based review of [ckanext-datagovuk](https://github.com/alphagov/ckanext-datagovu
 
 Standard CKAN 2.8 schema (`docker/solr/schema.xml`). Default query field is `text`, a catch all copy field that aggregates titles, notes, tags, URLs, resource fields, and extras on indexing.
 
-Default operator is AND.
+```
+<copyField source="extras_*" dest="text"/>
+<copyField source="res_extras_*" dest="text"/>
+<copyField source="vocab_*" dest="text"/>
+<copyField source="urls" dest="text"/>
+<copyField source="name" dest="text"/>
+<copyField source="title" dest="text"/>
+```
+
+Default search field is `text` operator is AND.
+
+```
+	<requestHandler name="/select" class="solr.SearchHandler">
+		<lst name="defaults">
+			<str name="echoParams">explicit</str>
+			<int name="rows">10</int>
+			<str name="df">text</str>
+			<str name="q.op">AND</str>
+		</lst>
+		
+	</requestHandler>
+```
 
 Other fields beyond CKAN defaults:
 - `harvest` — text, multiValued (DGU specific)
