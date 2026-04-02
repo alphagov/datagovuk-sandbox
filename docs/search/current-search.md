@@ -18,15 +18,14 @@ Standard CKAN 2.8 schema (`docker/solr/schema.xml`). Default query field is `tex
 Default search field is `text` operator is AND.
 
 ```
-	<requestHandler name="/select" class="solr.SearchHandler">
-		<lst name="defaults">
-			<str name="echoParams">explicit</str>
-			<int name="rows">10</int>
-			<str name="df">text</str>
-			<str name="q.op">AND</str>
-		</lst>
-		
-	</requestHandler>
+<requestHandler name="/select" class="solr.SearchHandler">
+	<lst name="defaults">
+		<str name="echoParams">explicit</str>
+		<int name="rows">10</int>
+		<str name="df">text</str>
+		<str name="q.op">AND</str>
+	</lst>
+</requestHandler>
 ```
 
 Other fields beyond CKAN defaults:
