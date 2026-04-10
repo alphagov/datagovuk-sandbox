@@ -13,7 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-04-09T0649.csv](results/collection-check-2026-04-09T0649.csv)
+Using test results file: [results/collection-check-2026-04-10T0701.csv](results/collection-check-2026-04-10T0701.csv)
+
+
+
+## Deprivation
+Page: [https://data.gov.uk/collections/people/deprivation](https://data.gov.uk/collections/people/deprivation)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.nisra.gov.uk/statistics/people-and-communities/deprivation](https://www.nisra.gov.uk/statistics/people-and-communities/deprivation)
 
 
 
