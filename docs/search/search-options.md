@@ -225,7 +225,7 @@ JSON + Schema is the foundation. JSON-LD layers on top without changing the unde
 
 ## Further investigation
 
-- **CKAN catalogue integration** — to be genuinely useful to users, search needs to surface good quality dataset metadata from the existing CKAN catalogue alongside topic content. This means executing a federated search from our backend against the CKAN Solr index and merging results. Dependent on the data quality work noted above.
+- **CKAN catalogue integration** — to be genuinely useful to users, search needs to surface good quality dataset metadata from the existing CKAN catalogue alongside topic content. This means executing a federated search from our backend against the CKAN Solr index. Whether results are transparently merged with collection data or not is up for discussion. The results could be labelled as distinct or merged, which is a product question. This is dependent on the data quality work noted above.
 
 - **MCP server** — an MCP server would allow users to search and browse topics directly from their LLM client of choice, without using our search interface at all. The server would be a thin layer combining two things: the JSON endpoints (for retrieving structured topic and collection data) and the search backends (for hybrid search via OpenSearch or PostgreSQL). Together these give an LLM the ability to search, retrieve, and reason over topic content without needing a browser.
 
