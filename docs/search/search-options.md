@@ -210,9 +210,9 @@ schema.org also supports fields we may want later: publisher (`Organization`), d
 | | JSON + Schema | JSON-LD |
 |---|---|---|
 | Simplicity | High | Moderate |
-| LLM/tooling compatibility | Strong | Indirect |
-| Machine discoverability | No | Yes |
-| Search engine understanding | No | Yes |
+| LLM/tooling compatibility | Good | Indirect |
+| Machine discoverability | Limited (needs additional context) | Self describing (semantic) |
+| Search engine understanding | No | Yes (standard for SEO) |
 | Implementation effort | Low | Moderate |
 
 JSON + Schema is the foundation. JSON-LD layers on top without changing the underlying data or API.
