@@ -120,7 +120,7 @@ Items have vector embeddings stored in an indexed column. At query time, two ran
 1. **Lexical** — Keyword matching over the text search vector
 2. **Semantic** — Distance matching between the query embedding and stored embeddings
 
-The two lists are combined using **Reciprocal Rank Fusion (RRF)**. RRF scores items based on their position in each list rather than reconciling different scoring scales. Items appearing in both lists rank highest; items in only one list still contribute.
+The two lists are combined using **Reciprocal Rank Fusion (RRF)**. RRF scores items based on their position in each list rather than reconciling different scoring scales. Items appearing in both lists rank highest; items in only one list still contribute. [See listing 15.17 on this page](https://github.com/treygrainger/ai-powered-search/blob/main/chapters/ch15/2.multimodal-and-hybrid-search.ipynb)
 
 ### Embeddings
 
