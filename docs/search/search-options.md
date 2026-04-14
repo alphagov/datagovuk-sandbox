@@ -16,17 +16,17 @@ There is an existing CKAN instance with dataset metadata searchable via Solr. Ra
 > [!IMPORTANT]
 > Note that any integration with existing ckan catalogue search assumes that work has been done to radically clean up the current data in the catalogue. This clean up should encompass not just datasets that have been abandoned/unmaintained or have broken links but also those with poor titles and descriptions as those are part of the existing ckan solr search.
 
-1. [PosgreSQL native full text search](#1-postgresql-native-full-text-search)
+1. [PostgreSQL native full text search](#1-postgresql-native-full-text-search)
 2. [Full text search with aggregations](#2-full-text-search-with-aggregations)
-3. [PosgreSQL native hybrid search (FTS + Vectors)](#3-postgresql-native-hybrid-search-fts--vectors)
+3. [PostgreSQL native hybrid search (FTS + Vectors)](#3-postgresql-native-hybrid-search-fts--vectors)
 4. [Hybrid search (Lexical + Semantic)](#4-hybrid-search-lexical--semantic)
 5. [Discoverability](#5-discoverability)
 
 ---
 
-## 1. PosgreSQL native full text search
+## 1. PostgreSQL native full text search
 
-Uses standard PosgreSQL database full text search capabilities (e.g. PostgreSQL's `tsvector`) with a weighted index. A database trigger or application logic maintains the search vector from `title` (high weight) and `body` (lower weight).
+Uses standard PostgreSQL database full text search capabilities (e.g. PostgreSQL's `tsvector`) with a weighted index. A database trigger or application logic maintains the search vector from `title` (high weight) and `body` (lower weight).
 
 Tagging can be introduced alongside full text search to provide another layer of grouping and association not purely based on body copy. Tags supplement lexical results; if a search term matches a tag, those items are included even if the term doesn't appear in the text.
 
@@ -97,7 +97,7 @@ Multiple selected tags typically use OR semantics (matching any selected tag). A
 
 ## Comparison
 
-| | PosgreSQL native | Dedicated Search Engine |
+| | PostgreSQL native | Dedicated Search Engine |
 |---|---|---|
 | Infrastructure | Primary DB only | DB + Search Cluster |
 | Consistency | Transactional | Eventually consistent |
@@ -109,9 +109,9 @@ Multiple selected tags typically use OR semantics (matching any selected tag). A
 
 ---
 
-## 3. PosgreSQL native hybrid search (FTS + Vectors)
+## 3. PostgreSQL native hybrid search (FTS + Vectors)
 
-Extends PosgreSQL native full text search with vector based semantic search. Both retrieval methods run against the same database using vector extensions (e.g. `pgvector`).
+Extends PostgreSQL native full text search with vector based semantic search. Both retrieval methods run against the same database using vector extensions (e.g. `pgvector`).
 
 ### How it works
 
