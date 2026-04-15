@@ -34,7 +34,7 @@ Uses standard PostgreSQL database full text search capabilities (e.g. PostgreSQL
 
 Tagging could be introduced alongside full text search to provide another layer of grouping and association not purely based on body copy. Tags supplement lexical results; if a search term matches a tag, those items are included even if the term doesn't appear in the text.
 
-See sample schema that was used for testhing here: [schema.sql](schema.sql)
+See sample schema that was used for testing here: [schema.sql](schema.sql)
 
 ### How it works
 
@@ -119,7 +119,7 @@ Multiple selected tags typically use OR semantics (matching any selected tag). A
 
 Extends PostgreSQL native full text search with vector based semantic search. Both retrieval methods run against the same database using vector extensions (e.g. `pgvector`).
 
-See sample schema that was used for testhing here: [schema.sql](schema.sql)
+See sample schema that was used for testing here: [schema.sql](schema.sql)
 
 ### How it works
 
