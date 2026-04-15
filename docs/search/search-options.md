@@ -241,7 +241,7 @@ JSON + Schema is the foundation. JSON-LD layers on top without changing the unde
 
 - **Embedding model evaluation** — the model used with local testing (`Snowflake/snowflake-arctic-embed-s`) was chosen based on size and convenience. Running representative queries against different models on bigger bodies of content would help validate model choice. There are also API's available for embeddings.
 
-- **Amazon Bedrock or other service** - using lexical+semantic search as a basis we could post process list based search result to produce sythesised responses. This would involve seeing results + user queuries to Bedrock, OpenAI (other?) to synthesise a natural language response.
+- **Amazon Bedrock or other service** - using lexical+semantic search as a basis we could post process list based search result to produce sythesised responses. This would involve sending results + user queries to Bedrock, OpenAI (other?) to synthesise a natural language response.
 
 - **Amazon Bedrock Knowledge Bases** — a fully managed AWS service. You point it at your content and it handles chunking, embedding, vector storage, and retrieval with no self managed embedding pipeline, vector indexes, or search tuning required. It can also pass retrieved content to an LLM to generate synthesised answers rather than returning a list of results. Worth investigating early because if the product direction favours "ask a question, get an answer" over traditional search result lists, it could remove the need to build and maintain the search infrastructure described in this document. Pay per query pricing (retrieval and LLM inference fees). The trade off is less control over ranking and presentation, and tight coupling to AWS.
 
