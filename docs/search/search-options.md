@@ -1,6 +1,6 @@
 # Search and discovery
 
-This document discusses approaches to finding and accessing topic data, from keyword and full text search through to semantic and hybrid search, as well as generative AI approaches such as Amazon Bedrock. Technical prototyping has been carried out on the search and browse options (sections 1–4). This testing included experimenting with a hybrid approach using both keyword and semantic search. The generative approach has not yet been prototyped but the aim is to investigate further.
+This document discusses approaches to finding and accessing topic data, from keyword and full text search through to keyword + semantic (hybrid) search, as well as generative AI approaches such as Amazon Bedrock. Technical prototyping has been carried out on the search and browse options (sections 1–4). This testing included experimenting with a hybrid approach using both keyword and semantic search. The generative approach has not yet been prototyped but the aim is to investigate further.
 
 ## Strategic direction
 
