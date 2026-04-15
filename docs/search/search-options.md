@@ -34,6 +34,8 @@ Uses standard PostgreSQL database full text search capabilities (e.g. PostgreSQL
 
 Tagging could be introduced alongside full text search to provide another layer of grouping and association not purely based on body copy. Tags supplement lexical results; if a search term matches a tag, those items are included even if the term doesn't appear in the text.
 
+See sample schema that was used for testhing here: [schema.sql](schema.sql)
+
 ### How it works
 
 - User input is parsed into a search query (supporting operators like and/or and exclusion)
@@ -58,7 +60,7 @@ Tagging could be introduced alongside full text search to provide another layer 
 - Transactional consistency — search is always up to date
 - Aggregating and filtering as wells as advanced relevance tuning require more manual implementation than dedicated search engines
 
-### Why not load content directly into a search engine?
+### Why not load content directly into a search index?
 
 An alternative approach would be to skip the database and index content directly into a search engine (like OpenSearch). Reasons why this might not be the best approach:
 
@@ -116,6 +118,8 @@ Multiple selected tags typically use OR semantics (matching any selected tag). A
 ## 3. PostgreSQL native hybrid search (FTS + Vectors)
 
 Extends PostgreSQL native full text search with vector based semantic search. Both retrieval methods run against the same database using vector extensions (e.g. `pgvector`).
+
+See sample schema that was used for testhing here: [schema.sql](schema.sql)
 
 ### How it works
 
