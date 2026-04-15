@@ -1,17 +1,17 @@
 # Search and discovery
 
-This document discusses approaches to finding and accessing topic data, from keyword and full text search through to semantic and hybrid search, as well as generative AI approaches such as Amazon Bedrock. Technical prototyping has been carried out on the search and browse options (sections 1–4). The generative approach has not yet been prototyped but the aim is to investigate further.
+This document discusses approaches to finding and accessing topic data, from keyword and full text search through to semantic and hybrid search, as well as generative AI approaches such as Amazon Bedrock. Technical prototyping has been carried out on the search and browse options (sections 1–4). This testing included experimenting with a hybrid approach using both keyword and semantic search. The generative approach has not yet been prototyped but the aim is to investigate further.
 
 ## Strategic direction
 
-The search and browse approaches (sections 1–4) are complementary and could be adopted incrementally as each builds on the last. However, there is a fundamental divergence between these and a generative AI approach:
+The search and browse approaches (sections 1–4) are complementary and could be adopted incrementally as each builds on the last. However, there is a fundamental divergence between these and a generative AI approach.
 
 - **Search and browse:** Users navigate and filter a list of results to find specific data.
 - **Synthesised answers:** Users ask questions and receive a generated response grounded in the underlying content.
 
 If the product direction favours synthesised answers (e.g. via Amazon Bedrock), it would likely remove the need for much of the custom search infrastructure described below, representing a different implementation path rather than another incremental layer. This is explored further in the [Further investigation](#further-investigation) section.
 
-There is an existing CKAN instance with dataset metadata searchable via Solr. Rather than migrating that data to another search solution, the recommended approach is to build a new search backend using one of the options below, and have it also query the existing CKAN Solr index (or via CKAN API?) with the user's search terms. This would be a way to present a single search experience across both data sources while deferring decisions about CKAN's long term role. In the longer term the two indexes could be merged into a single search model, but that is dependent on what future role, if any, CKAN will play.
+There is an existing CKAN instance with dataset metadata searchable via Solr. Rather than migrating that data to another search solution, the recommended intial approach would be to build a new search backend using one of the options below, and have it also query the existing CKAN Solr index directly (or via CKAN API?) with the user's search terms. This would be a way to present a single search experience across both data sources while deferring decisions about CKAN's long term role. In the longer term the two indexes could be merged into a single search model, but that is dependent on what future role, if any, CKAN will play.
 
 > [!IMPORTANT]
 > Note that any integration with existing ckan catalogue search assumes that work has been done to radically clean up the current data in the catalogue. This clean up should encompass not just datasets that have been abandoned/unmaintained or have broken links but also those with poor titles and descriptions as those are part of the existing ckan solr search.
@@ -28,7 +28,7 @@ There is an existing CKAN instance with dataset metadata searchable via Solr. Ra
 
 Uses standard PostgreSQL database full text search capabilities (e.g. PostgreSQL's `tsvector`) with a weighted index. A database trigger or application logic maintains the search vector from `title` (high weight) and `body` (lower weight).
 
-Tagging can be introduced alongside full text search to provide another layer of grouping and association not purely based on body copy. Tags supplement lexical results; if a search term matches a tag, those items are included even if the term doesn't appear in the text.
+Tagging could be introduced alongside full text search to provide another layer of grouping and association not purely based on body copy. Tags supplement lexical results; if a search term matches a tag, those items are included even if the term doesn't appear in the text.
 
 ### How it works
 
@@ -45,14 +45,14 @@ Tagging can be introduced alongside full text search to provide another layer of
 
 ### What it doesn't cover
 
-- Aggregate filtering — possible but typically requires additional development for performance
+- Aggregate filtering — possible but typically requires additional development
 - Fuzzy matching/typo tolerance — usually requires specialized extensions (e.g. `pg_trgm`)
 
 ### Trade offs
 
 - No additional infrastructure beyond the primary database
 - Transactional consistency — search is always up to date
-- Faceting and advanced relevance tuning require more manual implementation than dedicated search engines
+- Aggregating and filtering as wells as advanced relevance tuning require more manual implementation than dedicated search engines
 
 ### Why not load content directly into a search engine?
 
@@ -90,7 +90,7 @@ Multiple selected tags typically use OR semantics (matching any selected tag). A
 - First class filtering and aggregation support
 - Advanced relevance tuning (boosting, custom analyzers)
 - Requires a separate service and a synchronization/indexing step
-- Eventually consistent — there may be a slight lag between database updates and search availability
+- Eventually consistent — there may be a slight lag between database updates and search availability - not a major issue with small numbers of documents
 - Increased operational complexity (sync monitoring, reindexing)
 
 ---
@@ -124,7 +124,7 @@ The two lists are combined using **Reciprocal Rank Fusion (RRF)**. RRF scores it
 
 ### Embeddings
 
-Embeddings are generated using a transformer model. This can be done locally via a containerized model or via a hosted API. Using a local model ensures no external dependencies and lower latency for query embedding generation.
+Embeddings are generated using a transformer model. This can be done locally via a containerized model or via a hosted API. Using a local model ensures no external dependencies and lower latency for query embedding generation. This was the approach for testing but what specific embedding model to use is an open question.
 
 ### Trade offs
 
@@ -167,7 +167,7 @@ Hybrid queries can return a "long tail" of weakly related semantic results. A mi
 
 ## Production considerations
 
-For a production OpenSearch deployment, bulk reindexing should be replaced with event-driven synchronisation:
+For a production OpenSearch deployment if the number of items to be indexes becomes large, bulk reindexing could be replaced with event-driven synchronisation. (threshold to make this decision?)
 
 **Outbox pattern:** write an event into an outbox table in the same PostgreSQL transaction. A worker reads the outbox and updates the search index. Strong consistency, easy retries.
 
