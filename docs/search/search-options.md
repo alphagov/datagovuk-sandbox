@@ -1,15 +1,19 @@
 # Search and discovery
 
-This document discusses approaches to finding and accessing topic data, from keyword and full text search through to keyword + semantic (hybrid) search, as well as generative AI approaches such as Amazon Bedrock. Technical prototyping has been carried out on the search and browse options (sections 1–4). This testing included experimenting with a hybrid approach using both keyword and semantic search. The generative approach has not yet been prototyped but the aim is to investigate further.
+This document discusses approaches to finding and accessing topic data, from keyword and full text search through to keyword + semantic (hybrid) search.
+
+Technical prototyping has been carried out on the search and browse options (sections 1–4). This testing included experimenting with a hybrid approach using both keyword and semantic search.
+
+Neither the DIY RAG pipeline (feeding results of PostgreSQL or OpenSearch searches into AWS Bedrock) nor the fully managed AWS approach (Amazon Bedrock Knowledge bases) have been investigated at this stage but would be worth exploring further.
 
 ## Strategic direction
 
-The search and browse approaches (sections 1–4) are complementary and could be adopted incrementally as each builds on the last. However, there is a fundamental divergence between these and a generative AI approach.
+The search and browse approaches (sections 1–4) are complementary and could be adopted incrementally as each builds on the last. However, there is a fundamental divergence between these and a full managed generative AI approach (e.g. Amazon Bedrock Knowledge Bases).
 
 - **Search and browse:** Users navigate and filter a list of results to find specific data.
 - **Synthesised answers:** Users ask questions and receive a generated response grounded in the underlying content.
 
-If the product direction favours synthesised answers (e.g. via Amazon Bedrock), it would likely remove the need for much of the custom search infrastructure described below, representing a different implementation path rather than another incremental layer. This is explored further in the [Further investigation](#further-investigation) section.
+If the product direction favours synthesised answers (e.g. via Amazon Bedrock Knowledge bases), it would likely remove the need for much of the custom search infrastructure described below, representing a different implementation path rather than another incremental layer. This is explored further in the [Further investigation](#further-investigation) section.
 
 There is an existing CKAN instance with dataset metadata searchable via Solr. Rather than migrating that data to another search solution, the recommended intial approach would be to build a new search backend using one of the options below, and have it also query the existing CKAN Solr index directly (or via CKAN API?) with the user's search terms. This would be a way to present a single search experience across both data sources while deferring decisions about CKAN's long term role. In the longer term the two indexes could be merged into a single search model, but that is dependent on what future role, if any, CKAN will play.
 
@@ -233,4 +237,8 @@ JSON + Schema is the foundation. JSON-LD layers on top without changing the unde
 
 - **Embedding model evaluation** — the model used with local testing (`Snowflake/snowflake-arctic-embed-s`) was chosen based on size and convenience. Running representative queries against different models on bigger bodies of content would help validate model choice. There are also API's available for embeddings.
 
-- **Amazon Bedrock** — a fully managed AWS service. You point it at your content and it handles chunking, embedding, vector storage, and retrieval with no self managed embedding pipeline, vector indexes, or search tuning required. It can also pass retrieved content to an LLM to generate synthesised answers rather than returning a list of results. Worth investigating early because if the product direction favours "ask a question, get an answer" over traditional search result lists, it could remove the need to build and maintain the search infrastructure described in this document. Pay per query pricing (retrieval and LLM inference fees). The trade off is less control over ranking and presentation, and tight coupling to AWS.
+- **Amazon Bedrock or other service** - using lexical+semantic search as a basis we could post process list based search result to produce sythesised responses. This would involve seeing results + user queuries to Bedrock, OpenAI (other?) to synthesise a natural language response.
+
+- **Amazon Bedrock Knowledge Bases** — a fully managed AWS service. You point it at your content and it handles chunking, embedding, vector storage, and retrieval with no self managed embedding pipeline, vector indexes, or search tuning required. It can also pass retrieved content to an LLM to generate synthesised answers rather than returning a list of results. Worth investigating early because if the product direction favours "ask a question, get an answer" over traditional search result lists, it could remove the need to build and maintain the search infrastructure described in this document. Pay per query pricing (retrieval and LLM inference fees). The trade off is less control over ranking and presentation, and tight coupling to AWS.
+
+- 
