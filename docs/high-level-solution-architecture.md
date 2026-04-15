@@ -4,7 +4,7 @@
 
 The solution is a full-stack Django web application with a deliberately minimal footprint:
 
-- **No database** - there will be no persistence layer needed at this stage.
+- **No database** - there will be no persistence layer needed at this stage (could change soon).
 - **No admin interface** - content will not be managed through the application.
 - **Markdown as content** - pages are to be authored as markdown files that live in the application repository. The Django application then renders them dynamically on each request.
 - **Content editing happens in Github** - editors work with markdown files directly in the Github, using pull requests for review.
