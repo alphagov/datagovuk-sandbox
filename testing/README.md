@@ -13,19 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-04-17T0652.csv](results/collection-check-2026-04-17T0652.csv)
+Using test results file: [results/collection-check-2026-04-18T0639.csv](results/collection-check-2026-04-18T0639.csv)
 
 
-
-## Family food statistics
-Page: [https://data.gov.uk/collections/people/family-food-statistics](https://data.gov.uk/collections/people/family-food-statistics)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.gov.uk/government/statistics/family-food-open-data](https://www.gov.uk/government/statistics/family-food-open-data)
-
-
-
+No issues reported
