@@ -13,7 +13,31 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-04-18T0639.csv](results/collection-check-2026-04-18T0639.csv)
+Using test results file: [results/collection-check-2026-04-19T0648.csv](results/collection-check-2026-04-19T0648.csv)
 
 
-No issues reported
+
+## Planning data
+Page: [https://data.gov.uk/collections/land-and-property/planning-data](https://data.gov.uk/collections/land-and-property/planning-data)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.planning.data.gov.uk/dataset/](https://www.planning.data.gov.uk/dataset/)
+
+
+
+## Family food statistics
+Page: [https://data.gov.uk/collections/people/family-food-statistics](https://data.gov.uk/collections/people/family-food-statistics)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.gov.uk/government/statistics/family-food-open-data](https://www.gov.uk/government/statistics/family-food-open-data)
+
+
+
