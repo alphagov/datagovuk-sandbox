@@ -16,10 +16,12 @@ The approaches below are a progression rather than alternatives. Each builds on 
 
 The starting point is native PostgreSQL full text search (`tsvector`), which requires no additional infrastructure. Adding `pgvector` extends that with meaning based search. Moving to OpenSearch adds richer aggregation support and native hybrid search, at the cost of a separate service to run and keep in sync.
 
-There is an existing CKAN instance with dataset metadata searchable via Solr. Rather than migrating that data to another search solution, the recommended intial approach would be to build a new search backend using one of the options below, and have it also query the existing CKAN Solr index directly (or via CKAN API?) with the user's search terms. This would be a way to present a single search experience across both data sources while deferring decisions about CKAN's long term role. In the longer term the two indexes could be merged into a single search model, but that is dependent on what future role, if any, CKAN will play.
+### Integration with current CKAN/Solr search
+
+There is an existing CKAN instance with dataset metadata searchable via Solr. Rather than migrating that data to another search solution, the recommended initial approach would be to build a new search backend using one of the options below, and proxy the user's search terms to the existing CKAN Solr index (directly or via the CKAN API) in parallel. This would present a single search experience across both data sources while deferring decisions about CKAN's long term role. In the longer term the two indexes could be merged into a single search model, but that is dependent on what future role, if any, CKAN will play.
 
 > [!IMPORTANT]
-> Note that any integration with existing ckan catalogue search assumes that work has been done to radically clean up the current data in the catalogue. This clean up should encompass not just datasets that have been abandoned/unmaintained or have broken links but also those with poor titles and descriptions as those are part of the existing ckan solr search.
+> Any integration with existing CKAN catalogue search assumes that work has been done to radically clean up the current data in the catalogue. This clean up should encompass not just datasets that have been abandoned/unmaintained or have broken links but also those with poor titles and descriptions, as these feed directly into the existing Solr search.
 
 - [Keyword search](#keyword-search) — database native (`tsvector`) or OpenSearch
 - [Hybrid search](#hybrid-search) — database native (`pgvector`) or OpenSearch
@@ -127,9 +129,17 @@ For a production OpenSearch deployment if the number of items to be indexes beco
 
 | | DB native (PostgreSQL) | OpenSearch |
 |---|---|---|
-| **Operational overhead** | Low — no extra services, transactional consistency | Higher — separate service, sync pipeline, eventual consistency |
-| **Custom development** | More — faceting, typo tolerance, and fusion logic need custom code | Less — aggregations, fuzzy matching, and hybrid queries are builtin |
+| **Operational overhead** | Lower — no extra services, transactional consistency | Higher — separate service, sync pipeline, eventual consistency |
+| **Custom development** | More — filtering, typo tolerance, and fusion logic need custom code | Less — aggregations/filtering, fuzzy matching, and hybrid queries are builtin |
 | **Search capability** | Keyword and hybrid via `tsvector` + `pgvector` | Keyword and hybrid with more advanced relevance tuning |
+
+## Recommendation
+
+Start with the database native (PostgreSQL) approach. The primary reason is operational simplicity with no additional infrastructure to run or keep in sync. This also preserves bandwidth to consider how best to handle integration with the existing CKAN search.
+
+Extending to hybrid search via `pgvector` is straightforward, and the resulting keyword plus meaning based search capability is a significant step above what CKAN's Solr search currently supports.
+
+It also provides a solid foundation for experimenting with the RAG approach later, without having committed to a more complex infrastructure stack.
 
 ---
 
