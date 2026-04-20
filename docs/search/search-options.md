@@ -1,175 +1,109 @@
 # Search and discovery
 
-This document discusses approaches to finding and accessing topic data, from keyword and full text search through to keyword + semantic (hybrid) search.
+This document discusses approaches to finding and accessing topic data, covering keyword, meaning based, and hybrid search. Technical prototyping has been carried out on these options. Fully generative AI approaches are not covered in depth here but are signposted in [Further investigation](#further-investigation). 
 
-Technical prototyping has been carried out on the search and browse options (sections 1–4). This testing included experimenting with a hybrid approach using both keyword and semantic search.
+However, the intention is to experiment in the first instance with augmenting the search approaches by post processing results using LLM tools to provide more natural language responses. This approach is referred to as retrieval augmented generation (RAG).
 
-Neither the DIY RAG pipeline (feeding results of PostgreSQL or OpenSearch searches into AWS Bedrock) nor the fully managed AWS approach (Amazon Bedrock Knowledge bases) have been investigated at this stage but would be worth exploring further.
+## Terms
 
-## Strategic direction
+- **Keyword search** — finds content by matching the exact words a user types against the words in the content. More formally referred to as lexical search.
+- **Meaning based search** — finds content by understanding the intent behind a query, matching concepts even when the exact words differ. This is more formally referred to as semantic search.
+- **Hybrid search** — combines keyword and meaning based results to improve overall search quality.
 
-The search and browse approaches (sections 1–4) are complementary and could be adopted incrementally as each builds on the last. However, there is a fundamental divergence between these and a full managed generative AI approach (e.g. Amazon Bedrock Knowledge Bases).
+## Choosing an approach
 
-- **Search and browse:** Users navigate and filter a list of results to find specific data.
-- **Synthesised answers:** Users ask questions and receive a generated response grounded in the underlying content.
+The approaches below are a progression rather than alternatives. Each builds on the last, and the differences between them are primarily operational — how much infrastructure is required, how much custom code is needed, and how much search quality improves as a result.
 
-If the product direction favours synthesised answers (e.g. via Amazon Bedrock Knowledge bases), it would likely remove the need for much of the custom search infrastructure described below, representing a different implementation path rather than another incremental layer. This is explored further in the [Further investigation](#further-investigation) section.
+The starting point is native PostgreSQL full text search (`tsvector`), which requires no additional infrastructure. Adding `pgvector` extends that with meaning based search. Moving to OpenSearch adds richer aggregation support and native hybrid search, at the cost of a separate service to run and keep in sync.
 
 There is an existing CKAN instance with dataset metadata searchable via Solr. Rather than migrating that data to another search solution, the recommended intial approach would be to build a new search backend using one of the options below, and have it also query the existing CKAN Solr index directly (or via CKAN API?) with the user's search terms. This would be a way to present a single search experience across both data sources while deferring decisions about CKAN's long term role. In the longer term the two indexes could be merged into a single search model, but that is dependent on what future role, if any, CKAN will play.
 
 > [!IMPORTANT]
 > Note that any integration with existing ckan catalogue search assumes that work has been done to radically clean up the current data in the catalogue. This clean up should encompass not just datasets that have been abandoned/unmaintained or have broken links but also those with poor titles and descriptions as those are part of the existing ckan solr search.
 
-1. [PostgreSQL native full text search](#1-postgresql-native-full-text-search)
-2. [Full text search with aggregations](#2-full-text-search-with-aggregations)
-3. [PostgreSQL native hybrid search (FTS + Vectors)](#3-postgresql-native-hybrid-search-fts--vectors)
-4. [Hybrid search (Lexical + Semantic)](#4-hybrid-search-lexical--semantic)
-5. [Discoverability](#5-discoverability)
+- [Keyword search](#keyword-search) — database native (`tsvector`) or OpenSearch
+- [Hybrid search](#hybrid-search) — database native (`pgvector`) or OpenSearch
+- [Discoverability](#discoverability)
 
 ---
 
-## 1. PostgreSQL native full text search
+## Keyword search
 
-Uses standard PostgreSQL database full text search capabilities (e.g. PostgreSQL's `tsvector`) with a weighted index. A database trigger or application logic maintains the search vector from `title` (high weight) and `body` (lower weight).
+Keyword search matches the exact words a user types against words in the content. Two infrastructure options are available: database native using PostgreSQL's `tsvector`, or a dedicated search engine (OpenSearch).
 
-Tagging could be introduced alongside full text search to provide another layer of grouping and association not purely based on body copy. Tags supplement lexical results; if a search term matches a tag, those items are included even if the term doesn't appear in the text.
+### Database native
 
-See sample schema that was used for testing here: [schema.sql](schema.sql)
+Uses standard relational database full text search capabilities with a weighted index. A database trigger or application logic maintains the search vector from `title` (high weight) and `body` (lower weight).
 
-### How it works
+#### How it works
 
 - User input is parsed into a search query (supporting operators like and/or and exclusion)
 - Results are scored by relevance ranking
-- Tag matching supplements lexical results
 - Results are ranked by the combined score
-
-### What it covers
-
-- Full text search over title and body
-- Tag-based supplemented search
-- Relevance ranking with title boosting
-
-### What it doesn't cover
-
-- Aggregate filtering — possible but typically requires additional development
-- Fuzzy matching/typo tolerance — usually requires specialized extensions (e.g. `pg_trgm`)
-
-### Trade offs
-
-- No additional infrastructure beyond the primary database
-- Transactional consistency — search is always up to date
-- Aggregating and filtering as wells as advanced relevance tuning require more manual implementation than dedicated search engines
-
-### Why not load content directly into a search index?
-
-An alternative approach would be to skip the database and index content directly into a search engine (like OpenSearch). Reasons why this might not be the best approach:
-
-1. **Operational robustness** — a database provides a durable, queryable content store as a source of truth
-2. **Future admin interface** — the database serves as the backend for content management and relational integrity
-3. **Relational integrity** — the database enforces relationships (e.g. topics belonging to collections) that would be implicit and fragile if derived from a search index alone
-4. **Implementation simplicity** — if data is already in the database, native full text search provides a high-quality baseline with minimal overhead
 
 ---
 
-## 2. Full text search with aggregations
+### Dedicated search engine (OpenSearch)
 
 A dedicated search engine (e.g. OpenSearch or Elasticsearch) can be used as a denormalized search index. The primary database remains the source of truth and data is projected into flat search documents and indexed.
 
-### Architecture
+#### Architecture
 
 - **Write path:** data is written to the primary database, then synchronized to the search index
 - **Read path:** search queries go to the search engine, which returns results, aggregation counts, and ranking
-- **Document model:** one document per item, denormalized with metadata and tags included
+- **Document model:** one document per item, denormalized with metadata included
 
-### Query strategy
+#### Query strategy
 
 - Multi field matching on `title` (boosted) and `body`
-- Filter clauses for categories or tags
+- Filter clauses for categories
 - Aggregations for facet counts
 
-### Tag semantics
-
-Multiple selected tags typically use OR semantics (matching any selected tag). AND semantics (matching all selected tags) can be implemented if required.
-
-### Trade offs
-
-- First class filtering and aggregation support
-- Advanced relevance tuning (boosting, custom analyzers)
-- Requires a separate service and a synchronization/indexing step
-- Eventually consistent — there may be a slight lag between database updates and search availability - not a major issue with small numbers of documents
-- Increased operational complexity (sync monitoring, reindexing)
-
 ---
 
-## Comparison
+## Hybrid search
 
-| | PostgreSQL native | Dedicated Search Engine |
-|---|---|---|
-| Infrastructure | Primary DB only | DB + Search Cluster |
-| Consistency | Transactional | Eventually consistent |
-| Full text search | Yes | Yes |
-| Faceted filtering | Requires custom dev | Builtin via aggregations |
-| Relevance tuning | Basic | Advanced |
-| Fuzzy / typo tolerance | Extension based | Builtin |
-| Operational overhead | Lower | Higher |
+Hybrid search combines keyword and meaning based results to improve overall search quality. As with keyword search, both a database native and a dedicated search engine option are available.
 
----
+### Database native
 
-## 3. PostgreSQL native hybrid search (FTS + Vectors)
+Extends native full text search with meaning based search. Both retrieval methods run against the same database using vector extensions (e.g. `pgvector`).
 
-Extends PostgreSQL native full text search with vector based semantic search. Both retrieval methods run against the same database using vector extensions (e.g. `pgvector`).
-
-See sample schema that was used for testing here: [schema.sql](schema.sql)
-
-### How it works
+#### How it works
 
 Items have vector embeddings stored in an indexed column. At query time, two ranked lists are produced:
 
-1. **Lexical** — Keyword matching over the text search vector
-2. **Semantic** — Distance matching between the query embedding and stored embeddings
+1. **Keyword search** — matching over the text search vector
+2. **Meaning based search** — distance matching between the query embedding and stored embeddings
 
-The two lists are combined using **Reciprocal Rank Fusion (RRF)**. RRF scores items based on their position in each list rather than reconciling different scoring scales. Items appearing in both lists rank highest; items in only one list still contribute. [See listing 15.17 on this page](https://github.com/treygrainger/ai-powered-search/blob/main/chapters/ch15/2.multimodal-and-hybrid-search.ipynb)
+The two lists are combined using **Reciprocal Rank Fusion (RRF)**. RRF scores items based on their position in each list rather than reconciling different scoring scales. Items appearing in both lists rank highest; items in only one list still contribute.
 
-### Embeddings
+#### Embeddings
 
-Embeddings are generated using a transformer model. This can be done locally via a containerized model or via a hosted API. Using a local model ensures no external dependencies and lower latency for query embedding generation. This was the approach for testing but what specific embedding model to use is an open question.
-
-### Trade offs
-
-- No additional infrastructure beyond the primary database
-- Semantic matching catches queries that don't share exact terms with the content
-- Fusion logic is handled at the application level
-- Retrieval quality is determined by the choice of embedding model
+Embeddings are generated using a transformer model. This can be done locally via a containerized model or via a hosted API. Using a local model ensures no external dependencies and lower latency for query embedding generation.
 
 ---
 
-## 4. Hybrid search (Lexical + Semantic)
+### Dedicated search engine (OpenSearch)
 
 Uses a search engine's native hybrid query to combine BM25 text matching with vector search (kNN) in a single request. Score normalization and fusion occur within the search cluster.
 
-### How it works
+#### How it works
 
 A single hybrid query sends two sub-queries:
 
-1. **Lexical** — Text matching on title and body
-2. **Semantic** — Nearest neighbour search over vector embeddings
+1. **Keyword search** — text matching on title and body
+2. **Meaning based search** — nearest neighbour search over vector embeddings
 
 A search pipeline normalizes the score distributions and combines them (e.g. using RRF). This offloads the fusion complexity from the application to the search infrastructure.
 
-### Embeddings
+#### Embeddings
 
 Reuses the same embedding strategy as the database native approach. Embeddings are included in the search index during the indexing process.
 
-### Score thresholds and tuning
+#### Score thresholds and tuning
 
-Hybrid queries can return a "long tail" of weakly related semantic results. A minimum score threshold can be applied to filter out noise, and parameters like the number of nearest neighbours retrieved should be tuned against representative data to balance recall and precision.
-
-### Trade offs
-
-- Native fusion handled by the search engine
-- Retrieval and fusion in a single request
-- Requires modern search engine versions that support RRF as a combination technique
-- Thresholds and retrieval parameters require ongoing tuning as content grows
+Hybrid queries can return a "long tail" of weakly related meaning based results. A minimum score threshold can be applied to filter out noise, and parameters like the number of nearest neighbours retrieved should be tuned against representative data to balance recall and precision.
 
 ---
 
@@ -179,7 +113,7 @@ For a production OpenSearch deployment if the number of items to be indexes beco
 
 **Outbox pattern:** write an event into an outbox table in the same PostgreSQL transaction. A worker reads the outbox and updates the search index. Strong consistency, easy retries.
 
-**Events that require reindexing:** topic field changes, topic tag changes, collection title/slug changes (fan out to all topics in that collection), tag name changes (fan out to all topics with that tag).
+**Events that require reindexing:** topic field changes, collection title/slug changes (fan out to all topics in that collection).
 
 **Reindex strategy:** use versioned indices and aliases (`topics_v1`, `topics_v2`, alias `topics_current`). Create new index, bulk reindex, validate, switch alias atomically.
 
@@ -189,9 +123,19 @@ For a production OpenSearch deployment if the number of items to be indexes beco
 
 ---
 
-## 5. Discoverability
+## Summary
 
-The goal is to make topic and collection data discoverable and interoperable. LLMs and modern tooling benefit most from clean, consistent JSON with a well defined schema, so a pragmatic approach could be to start with JSON + JSON Schema and layer JSON-LD on top later if semantic discoverability becomes important.
+| | DB native (PostgreSQL) | OpenSearch |
+|---|---|---|
+| **Operational overhead** | Low — no extra services, transactional consistency | Higher — separate service, sync pipeline, eventual consistency |
+| **Custom development** | More — faceting, typo tolerance, and fusion logic need custom code | Less — aggregations, fuzzy matching, and hybrid queries are builtin |
+| **Search capability** | Keyword and hybrid via `tsvector` + `pgvector` | Keyword and hybrid with more advanced relevance tuning |
+
+---
+
+## Discoverability
+
+The goal is to make topic and collection data discoverable and interoperable. LLMs and modern tooling benefit most from clean, consistent JSON with a well defined schema, so a pragmatic approach could be to start with JSON + JSON Schema and layer JSON-LD on top later if machine readable discoverability (semantic discoverability) becomes important.
 
 ### JSON endpoints
 
@@ -206,14 +150,13 @@ JSON-LD adds a shared vocabulary via `@context` using schema.org types. The mapp
 | Catalogue | `DataCatalog` |
 | Collection | `DataCatalog` (nested) |
 | Topic | `Dataset` |
-| Tag | `keywords` |
 | Link (dataset) | `distribution` → `DataDownload` |
 | Title | `name` |
 | Updated date | `dateModified` |
 
 schema.org also supports fields we may want later: publisher (`Organization`), data formats (`encodingFormat`), licence (`license`), spatial/temporal coverage.
 
-### Trade offs
+### Comparison
 
 | | JSON + Schema | JSON-LD |
 |---|---|---|
@@ -237,9 +180,9 @@ JSON + Schema is the foundation. JSON-LD layers on top without changing the unde
 
 - **MCP server** — an MCP server would allow users to search and browse topics directly from their LLM client of choice, without using our search interface at all. The server would be a thin layer combining two things: the JSON endpoints (for retrieving structured topic and collection data) and the search backends (for hybrid search via OpenSearch or PostgreSQL). Together these give an LLM the ability to search, retrieve, and reason over topic content without needing a browser.
 
-- **Evaluation framework** — systematic way to measure search quality haven't been addressed yet. Standard approaches exist but they require a set of test queries paired with human judged relevant results. Building a small set of good representative queries would allow better comparison across approaches rather than relying on manual inspection.
+- **Evaluation framework** — a systematic way to measure search quality has not been addressed yet. Standard approaches exist but they require a set of test queries paired with human judged relevant results. Building a small set of good representative queries would allow better comparison across approaches rather than relying on manual inspection.
 
-- **Embedding model evaluation** — the model used with local testing (`Snowflake/snowflake-arctic-embed-s`) was chosen based on size and convenience. Running representative queries against different models on bigger bodies of content would help validate model choice. There are also API's available for embeddings.
+- **Embedding model evaluation** — the model used with local testing (`Snowflake/snowflake-arctic-embed-s`) was chosen based on size and convenience. Running representative queries against different models on bigger bodies of content would help validate model choice. There are also APIs available for embeddings.
 
 - **Amazon Bedrock or other service** - using lexical+semantic search as a basis we could post process list based search result to produce sythesised responses. This would involve sending results + user queries to Bedrock, OpenAI (other?) to synthesise a natural language response.
 
