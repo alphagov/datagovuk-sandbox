@@ -13,7 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-04-23T0653.csv](results/collection-check-2026-04-23T0653.csv)
+Using test results file: [results/collection-check-2026-04-24T0655.csv](results/collection-check-2026-04-24T0655.csv)
 
 
-No issues reported
+
+## Energy performance of buildings
+Page: [https://data.gov.uk/collections/land-and-property/energy-performance-of-buildings](https://data.gov.uk/collections/land-and-property/energy-performance-of-buildings)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.gov.uk/government/collections/energy-performance-of-buildings-certificates](https://www.gov.uk/government/collections/energy-performance-of-buildings-certificates)
+
+
+
