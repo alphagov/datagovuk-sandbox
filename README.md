@@ -1,14 +1,5 @@
 # Datagovuk data prototypes
 
-## Test data vistualisations
-
-The [data](data) directory is used for testing data to be used in visualisations.
-
-
-## Architecture docs
-
-Architecture [docs](docs)
-
 
 ## Site checks for data.gov.uk
 
@@ -58,3 +49,8 @@ The check produces `data/results/collection-check-<timestamp>.csv` with columns:
 ### GitHub Actions
 
 The workflow `.github/workflows/check-collection-urls.yml` can be triggered manually to collect URLs, run checks, and commit the results.
+
+
+# What happened to the docs files?
+
+Well they moved to a new home over here [https://github.com/alphagov/datagovuk-architecture](https://github.com/alphagov/datagovuk-architecture)
