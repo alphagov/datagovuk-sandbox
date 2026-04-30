@@ -113,6 +113,6 @@ transport,road-safety,https://www.gov.uk/government/statistical-data-sets/road-s
 transport,road-traffic,https://roadtraffic.dft.gov.uk,Road traffic statistics,website
 transport,road-traffic,https://roadtraffic.dft.gov.uk/docs/index.html,Road traffic API,api
 transport,road-traffic,https://roadtraffic.dft.gov.uk/downloads,Road traffic datasets,dataset
-transport,transport-connectivity,https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain,Connectivity Tool Lite,website
+transport,transport-connectivity,https://connectivity-tool-lite.dft.gov.uk/index,Connectivity Tool Lite,website
 transport,transport-connectivity,https://www.gov.uk/guidance/connectivity-tool,Connectivity Tool: guidance for built environment professionals,website
 transport,transport-connectivity,https://www.gov.uk/government/publications/transport-connectivity-metric,Transport connectivity metric,website
