@@ -13,21 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-09-10T0636.csv](results/collection-check-2026-09-10T0636.csv)
-
-
-
-## Get charity information
-Page: [https://data.gov.uk/collections/business-and-economy/get-charity-information](https://data.gov.uk/collections/business-and-economy/get-charity-information)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://register-of-charities.charitycommission.gov.uk/en/charity-search](https://register-of-charities.charitycommission.gov.uk/en/charity-search)
-
-- [https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api](https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api)
+Using test results file: [results/collection-check-2026-09-11T0633.csv](results/collection-check-2026-09-11T0633.csv)
 
 
 

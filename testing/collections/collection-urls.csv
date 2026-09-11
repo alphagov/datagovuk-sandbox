@@ -90,7 +90,7 @@ government-and-parliament,local-government-finance,https://www.gov.uk/government
 government-and-parliament,parliament-voting-records,https://votes.parliament.uk/,Browse voting records,website
 government-and-parliament,parliament-voting-records,https://commonsvotes-api.parliament.uk/swagger/ui/index,Commons Votes API,api
 government-and-parliament,parliament-voting-records,https://lordsvotes-api.parliament.uk/index.html,Lords Votes API,api
-government-and-parliament,parliament-voting-records,https://explore.data.parliament.uk/,Data explorer,dataset
+government-and-parliament,parliament-voting-records,https://explore.data.parliament.uk/,Parliament data explorer,dataset
 government-and-parliament,service-assessment-reports,https://www.gov.uk/service-standard-reports,Service assessment reports,website
 government-and-parliament,transparency-data,https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=transparency,Transparency data,website
 land-and-property,addresses,https://www.ordnancesurvey.co.uk/products/os-gb-address,Ordnance Survey address database,website
