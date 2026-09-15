@@ -93,7 +93,8 @@ government-and-parliament,parliament-voting-records,https://lordsvotes-api.parli
 government-and-parliament,parliament-voting-records,https://explore.data.parliament.uk/,Parliament data explorer,dataset
 government-and-parliament,service-assessment-reports,https://www.gov.uk/service-standard-reports,Service assessment reports,website
 government-and-parliament,transparency-data,https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=transparency,Transparency data,website
-land-and-property,addresses,https://www.ordnancesurvey.co.uk/products/os-gb-address,Ordnance Survey address database,website
+land-and-property,addresses,https://www.ordnancesurvey.co.uk/products/os-gb-address,Ordnance Survey address dataset,website
+land-and-property,addresses,https://www.ordnancesurvey.co.uk/products/os-places-api,OS Places API,api
 land-and-property,dwelling-stock,https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants,Dwelling stock,website
 land-and-property,energy-performance-of-buildings,https://www.gov.uk/government/collections/energy-performance-of-buildings-certificates,Energy performance of buildings,website
 land-and-property,english-housing-survey,https://www.gov.uk/government/collections/english-housing-survey-live-tables,English Housing Survey,website
