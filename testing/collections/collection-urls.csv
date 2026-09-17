@@ -61,6 +61,7 @@ environment,landfill-sites,https://environment.data.gov.uk/dataset/692eaecf-d465
 environment,landfill-sites,https://environment.data.gov.uk/dataset/7a955570-d465-11e4-a37c-f0def148f590,Historic landfill sites,dataset
 environment,lidar,https://environment.data.gov.uk/dataset/13787b9a-26a4-4775-8523-806d13af58fc,LIDAR Composite Digital Terrain Model,website
 environment,long-term-flood-risk,https://www.gov.uk/check-long-term-flood-risk,Flood risk in England,website
+environment,long-term-flood-risk,https://flood-map-for-planning.service.gov.uk/,Flood risk for planning in England,website
 environment,long-term-flood-risk,https://map.sepa.org.uk/floodmaps,Flood risk in Scotland,website
 environment,long-term-flood-risk,https://naturalresources.wales/splash?orig=%2fflooding%2fcheck-your-flood-risk-by-postcode%2f,Flood risk in Wales,website
 environment,long-term-flood-risk,https://www.nidirect.gov.uk/articles/check-risk-flooding-your-area,Flood risk in Northern Ireland,website

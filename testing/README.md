@@ -13,7 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-09-16T0637.csv](results/collection-check-2026-09-16T0637.csv)
+Using test results file: [results/collection-check-2026-09-17T0636.csv](results/collection-check-2026-09-17T0636.csv)
 
 
 
@@ -25,21 +25,19 @@ Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https
 
 The following links were not reachable during test
 
-- [https://www.opendata.nhs.scot/dataset/childhood-immunisation-statistics](https://www.opendata.nhs.scot/dataset/childhood-immunisation-statistics)
-
 - [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
 
 
 
-## Early years development review
-Page: [https://data.gov.uk/collections/early-years/early-years-development-review](https://data.gov.uk/collections/early-years/early-years-development-review)
+## Long term flood risk
+Page: [https://data.gov.uk/collections/environment/long-term-flood-risk](https://data.gov.uk/collections/environment/long-term-flood-risk)
+
+
+Check the following links are on the page above - the test does report false positives:
+
+- https://flood-map-for-planning.service.gov.uk/
 
 
             
-
-The following links were not reachable during test
-
-- [https://www.opendata.nhs.scot/group/early-child-development](https://www.opendata.nhs.scot/group/early-child-development)
-
 
 
