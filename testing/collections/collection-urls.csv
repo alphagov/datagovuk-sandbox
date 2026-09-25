@@ -56,6 +56,7 @@ environment,air-quality,https://get-air-pollution-data.service.gov.uk/,Get air p
 environment,climate-projections,https://www.metoffice.gov.uk/research/approach/collaboration/ukcp,Climate projections,website
 environment,coastal-erosion,https://environment.data.gov.uk/dataset/9fede91f-5acd-4fd2-9bd8-98153fa3c2ff,Coastal erosion data,website
 environment,flood-alerts,https://check-for-flooding.service.gov.uk/alerts-and-warnings,Flood alerts,website
+environment,flood-alerts,https://environment.data.gov.uk/dataset/88bed270-d465-11e4-8669-f0def148f590,Historic flood warnings,website
 environment,forest-and-woodlands,https://data-forestry.opendata.arcgis.com/datasets/0682c7cb180e4abe9dee7e4d5cc35784_0/explore,National Forest Inventory map,website
 environment,landfill-sites,https://environment.data.gov.uk/dataset/692eaecf-d465-11e4-ac2e-f0def148f590,Landfill sites,website
 environment,landfill-sites,https://environment.data.gov.uk/dataset/7a955570-d465-11e4-a37c-f0def148f590,Historic landfill sites,dataset
