@@ -13,19 +13,31 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-09-30T0638.csv](results/collection-check-2026-09-30T0638.csv)
+Using test results file: [results/collection-check-2026-10-01T0639.csv](results/collection-check-2026-10-01T0639.csv)
 
 
 
-## Flood alerts
-Page: [https://data.gov.uk/collections/environment/flood-alerts](https://data.gov.uk/collections/environment/flood-alerts)
-
-
-Check the following links are on the page above - the test does report false positives:
-
-- https://environment.data.gov.uk/dataset/88bed270-d465-11e4-8669-f0def148f590
+## Education statistics
+Page: [https://data.gov.uk/collections/early-years/education-statistics](https://data.gov.uk/collections/early-years/education-statistics)
 
 
             
+
+The following links were not reachable during test
+
+- [https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=](https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=)
+
+
+
+## Legislation
+Page: [https://data.gov.uk/collections/government-and-parliament/legislation](https://data.gov.uk/collections/government-and-parliament/legislation)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://legislation.github.io/data-documentation/api/overview.html](https://legislation.github.io/data-documentation/api/overview.html)
+
 
 
