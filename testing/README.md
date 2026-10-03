@@ -13,7 +13,43 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-02T0637.csv](results/collection-check-2026-10-02T0637.csv)
+Using test results file: [results/collection-check-2026-10-03T0636.csv](results/collection-check-2026-10-03T0636.csv)
 
 
-No issues reported
+
+## Child height and weight
+Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://publichealthscotland.scot/publications/show-all-releases?id=20566](https://publichealthscotland.scot/publications/show-all-releases?id=20566)
+
+
+
+## Childhood vaccinations
+Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://publichealthscotland.scot/publications/show-all-releases?id=20562](https://publichealthscotland.scot/publications/show-all-releases?id=20562)
+
+
+
+## Early years development review
+Page: [https://data.gov.uk/collections/early-years/early-years-development-review](https://data.gov.uk/collections/early-years/early-years-development-review)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://publichealthscotland.scot/publications/show-all-releases?id=20569](https://publichealthscotland.scot/publications/show-all-releases?id=20569)
+
+
+
