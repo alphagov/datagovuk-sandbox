@@ -13,43 +13,21 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-03T0636.csv](results/collection-check-2026-10-03T0636.csv)
+Using test results file: [results/collection-check-2026-10-04T0814.csv](results/collection-check-2026-10-04T0814.csv)
 
 
 
-## Child height and weight
-Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://publichealthscotland.scot/publications/show-all-releases?id=20566](https://publichealthscotland.scot/publications/show-all-releases?id=20566)
-
-
-
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
+## Aerial photography
+Page: [https://data.gov.uk/collections/environment/aerial-photography](https://data.gov.uk/collections/environment/aerial-photography)
 
 
             
 
 The following links were not reachable during test
 
-- [https://publichealthscotland.scot/publications/show-all-releases?id=20562](https://publichealthscotland.scot/publications/show-all-releases?id=20562)
+- [https://environment.data.gov.uk/dataset/32e2ff04-0c14-4544-b107-baa1552d0eee](https://environment.data.gov.uk/dataset/32e2ff04-0c14-4544-b107-baa1552d0eee)
 
-
-
-## Early years development review
-Page: [https://data.gov.uk/collections/early-years/early-years-development-review](https://data.gov.uk/collections/early-years/early-years-development-review)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://publichealthscotland.scot/publications/show-all-releases?id=20569](https://publichealthscotland.scot/publications/show-all-releases?id=20569)
+- [https://environment.data.gov.uk/dataset/dae203a8-ba24-4c54-bab0-866b9faadb58](https://environment.data.gov.uk/dataset/dae203a8-ba24-4c54-bab0-866b9faadb58)
 
 
 
