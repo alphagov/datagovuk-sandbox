@@ -13,19 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-06T0637.csv](results/collection-check-2026-10-06T0637.csv)
+Using test results file: [results/collection-check-2026-10-07T0636.csv](results/collection-check-2026-10-07T0636.csv)
 
 
 
-## Child height and weight
-Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
+## Childhood vaccinations
+Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health](https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health)
+- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
 
 
 
