@@ -87,3 +87,12 @@ jobs:
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
+
+      - name: Set deployed image
+        run: |
+          aws ssm put-parameter \
+            --name "/test/${{ env.ECS_SERVICE }}/image" \
+            --type String \
+            --value "${{ steps.build-image.outputs.image }}" \
+            --overwrite
+
