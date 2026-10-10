@@ -13,19 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-09T0637.csv](results/collection-check-2026-10-09T0637.csv)
+Using test results file: [results/collection-check-2026-10-10T0636.csv](results/collection-check-2026-10-10T0636.csv)
 
 
 
-## Education statistics
-Page: [https://data.gov.uk/collections/early-years/education-statistics](https://data.gov.uk/collections/early-years/education-statistics)
+## Child height and weight
+Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=](https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=)
+- [https://www.opendata.nhs.scot/dataset/primary-1-body-mass-index-bmi-statistics](https://www.opendata.nhs.scot/dataset/primary-1-body-mass-index-bmi-statistics)
 
 
 
