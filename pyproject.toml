@@ -17,6 +17,7 @@ dependencies = [
     "markdown>=3.10.2",
     "python-markdown>=0.1.0",
     "boto3>=1.40.0",
+    "psycopg[binary]>=3.2",
 ]
 
 [dependency-groups]

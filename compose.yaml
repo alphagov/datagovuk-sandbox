@@ -12,6 +12,20 @@ services:
     networks:
       - local-network
 
+  db:
+    image: postgres:18
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=sandbox
+    ports:
+      - "5432:5432"
+    volumes:
+      # postgres 18+ images keep data in a version subdirectory, so the mount
+      # point is /var/lib/postgresql rather than the pre-18 .../data
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - local-network
+
   web:
     build:
       context: .
@@ -32,6 +46,7 @@ services:
       - /app/.venv
     depends_on:
       - opensearch
+      - db
     networks:
       - local-network
 
@@ -41,3 +56,4 @@ networks:
 
 volumes:
   opensearch_data:
+  postgres_data:
