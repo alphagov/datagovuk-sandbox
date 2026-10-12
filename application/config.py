@@ -23,10 +23,8 @@ class Config:
     )
     OPENSEARCH_DATASETS_INDEX = os.getenv("OPENSEARCH_DATASETS_INDEX", "datasets")
 
-    # Only used when OPENSEARCH_URL is https, to sign requests to AWS OpenSearch
-    # Service. ECS does not inject this the way Lambda does, so the task
-    # definition has to set it explicitly.
-    AWS_REGION = os.getenv("AWS_REGION") or os.getenv("AWS_DEFAULT_REGION")
+    # All OpenSearch requests are SigV4 signed, so this is always
+    AWS_REGION = os.getenv("AWS_REGION")
 
 
 class DevelopmentConfig(Config):

@@ -13,27 +13,26 @@ def get_client():
         raise SearchNotConfigured(
             "Search is not configured. Set OPENSEARCH_URL to enable it."
         )
-    if url.startswith("https://"):
-        # then use AWS Opensearch with requests signed as the ECS task role.
-        auth = Urllib3AWSV4SignerAuth(
-            boto3.Session().get_credentials(),
-            current_app.config["AWS_REGION"],
-            "es",  # managed Opensearch
-        )
-        return OpenSearch(
-            hosts=[url],
-            http_auth=auth,
-            use_ssl=True,
-            verify_certs=True,
-        )
 
-    else:
-        # use local dev container in compose
-        return OpenSearch(
-            hosts=[url],
-            use_ssl=False,
-            verify_certs=False,
+    # Requests are always SigV4 signed, whatever the host, compose container has
+    # security disabled and ignores the Authorization header so the single code path
+    # works there with the dummy credentials set in compose.yaml
+    credentials = boto3.Session().get_credentials()
+    region = current_app.config["AWS_REGION"]
+    if credentials is None or region is None:
+        raise SearchNotConfigured(
+            "AWS credentials and AWS_REGION are required to sign OpenSearch "
+            "requests. Locally any dummy values work (see compose.yaml)."
         )
+    auth = Urllib3AWSV4SignerAuth(credentials, region, "es")  # es means managed Opensearch
+
+    use_ssl = url.startswith("https://")
+    return OpenSearch(
+        hosts=[url],
+        http_auth=auth,
+        use_ssl=use_ssl,
+        verify_certs=use_ssl,
+    )
 
 
 def search(search_index, body):

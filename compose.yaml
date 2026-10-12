@@ -22,6 +22,11 @@ services:
       - .flaskenv
     environment:
       - OPENSEARCH_URL=http://opensearch:9200
+      # The app always signs OpenSearch requests (SigV4). The local container has
+      # security disabled and ignores the signature so use dummy values
+      - AWS_ACCESS_KEY_ID=local
+      - AWS_SECRET_ACCESS_KEY=local
+      - AWS_REGION=eu-west-2
     volumes:
       - .:/app
       - /app/.venv
