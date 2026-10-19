@@ -13,7 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-18T0631.csv](results/collection-check-2026-10-18T0631.csv)
+Using test results file: [results/collection-check-2026-10-19T0646.csv](results/collection-check-2026-10-19T0646.csv)
 
 
 
@@ -35,33 +35,15 @@ The following links were not reachable during test
 
 
 
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
+## Contracts finder
+Page: [https://data.gov.uk/collections/government-and-parliament/contracts-finder](https://data.gov.uk/collections/government-and-parliament/contracts-finder)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.opendata.nhs.scot/dataset/childhood-immunisation-statistics](https://www.opendata.nhs.scot/dataset/childhood-immunisation-statistics)
-
-- [https://scotland.shinyapps.io/phs-vaccination-surveillance/](https://scotland.shinyapps.io/phs-vaccination-surveillance/)
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-- [https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports](https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports)
-
-
-
-## Early years development review
-Page: [https://data.gov.uk/collections/early-years/early-years-development-review](https://data.gov.uk/collections/early-years/early-years-development-review)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.opendata.nhs.scot/group/early-child-development](https://www.opendata.nhs.scot/group/early-child-development)
+- [https://www.contractsfinder.service.gov.uk/Search](https://www.contractsfinder.service.gov.uk/Search)
 
 
 
