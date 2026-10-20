@@ -13,37 +13,21 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-19T0646.csv](results/collection-check-2026-10-19T0646.csv)
+Using test results file: [results/collection-check-2026-10-20T0635.csv](results/collection-check-2026-10-20T0635.csv)
 
 
 
-## Child height and weight
-Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.opendata.nhs.scot/dataset/primary-1-body-mass-index-bmi-statistics](https://www.opendata.nhs.scot/dataset/primary-1-body-mass-index-bmi-statistics)
-
-- [https://phw.nhs.wales/topic/child-measurement-programme/#reports](https://phw.nhs.wales/topic/child-measurement-programme/#reports)
-
-- [https://publichealthwales.shinyapps.io/ChildMeasurementProgrammeDashboard/](https://publichealthwales.shinyapps.io/ChildMeasurementProgrammeDashboard/)
-
-- [https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health](https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health)
-
-
-
-## Contracts finder
-Page: [https://data.gov.uk/collections/government-and-parliament/contracts-finder](https://data.gov.uk/collections/government-and-parliament/contracts-finder)
+## Get charity information
+Page: [https://data.gov.uk/collections/business-and-economy/get-charity-information](https://data.gov.uk/collections/business-and-economy/get-charity-information)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.contractsfinder.service.gov.uk/Search](https://www.contractsfinder.service.gov.uk/Search)
+- [https://register-of-charities.charitycommission.gov.uk/en/charity-search](https://register-of-charities.charitycommission.gov.uk/en/charity-search)
+
+- [https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api](https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api)
 
 
 
