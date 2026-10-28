@@ -13,19 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-27T0636.csv](results/collection-check-2026-10-27T0636.csv)
+Using test results file: [results/collection-check-2026-10-28T0627.csv](results/collection-check-2026-10-28T0627.csv)
 
 
 
-## Child height and weight
-Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
+## Deprivation
+Page: [https://data.gov.uk/collections/people/deprivation](https://data.gov.uk/collections/people/deprivation)
 
 
             
 
 The following links were not reachable during test
 
-- [https://fingertips.phe.org.uk/static-reports/obesity-physical-activity-nutrition/national-child-measurement-programme-2024-2025-academic-year.html](https://fingertips.phe.org.uk/static-reports/obesity-physical-activity-nutrition/national-child-measurement-programme-2024-2025-academic-year.html)
+- [https://www.gov.wales/welsh-index-multiple-deprivation-2025-series](https://www.gov.wales/welsh-index-multiple-deprivation-2025-series)
 
 
 
