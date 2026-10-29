@@ -13,19 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-10-28T0627.csv](results/collection-check-2026-10-28T0627.csv)
+Using test results file: [results/collection-check-2026-10-29T0626.csv](results/collection-check-2026-10-29T0626.csv)
 
 
-
-## Deprivation
-Page: [https://data.gov.uk/collections/people/deprivation](https://data.gov.uk/collections/people/deprivation)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.gov.wales/welsh-index-multiple-deprivation-2025-series](https://www.gov.wales/welsh-index-multiple-deprivation-2025-series)
-
-
-
+No issues reported
