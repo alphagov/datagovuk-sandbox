@@ -13,19 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-11-02T0631.csv](results/collection-check-2026-11-02T0631.csv)
-
-
-
-## Get charity information
-Page: [https://data.gov.uk/collections/business-and-economy/get-charity-information](https://data.gov.uk/collections/business-and-economy/get-charity-information)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://register-of-charities.charitycommission.gov.uk/en/charity-search](https://register-of-charities.charitycommission.gov.uk/en/charity-search)
+Using test results file: [results/collection-check-2026-11-03T0622.csv](results/collection-check-2026-11-03T0622.csv)
 
 
 
@@ -38,6 +26,18 @@ Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https
 The following links were not reachable during test
 
 - [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
+
+
+
+## Education statistics
+Page: [https://data.gov.uk/collections/early-years/education-statistics](https://data.gov.uk/collections/early-years/education-statistics)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=](https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=)
 
 
 
