@@ -13,7 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-11-03T0622.csv](results/collection-check-2026-11-03T0622.csv)
+Using test results file: [results/collection-check-2026-11-04T0624.csv](results/collection-check-2026-11-04T0624.csv)
 
 
 
@@ -29,15 +29,27 @@ The following links were not reachable during test
 
 
 
-## Education statistics
-Page: [https://data.gov.uk/collections/early-years/education-statistics](https://data.gov.uk/collections/early-years/education-statistics)
+## Climate projections
+Page: [https://data.gov.uk/collections/environment/climate-projections](https://data.gov.uk/collections/environment/climate-projections)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=](https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=)
+- [https://www.metoffice.gov.uk/research/approach/collaboration/ukcp](https://www.metoffice.gov.uk/research/approach/collaboration/ukcp)
+
+
+
+## Real time and historic train information
+Page: [https://data.gov.uk/collections/transport/real-time-and-historic-train-information](https://data.gov.uk/collections/transport/real-time-and-historic-train-information)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.nationalrail.co.uk/developers/darwin-data-feeds](https://www.nationalrail.co.uk/developers/darwin-data-feeds)
 
 
 
