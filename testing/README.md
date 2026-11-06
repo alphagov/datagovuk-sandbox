@@ -13,31 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-11-05T0623.csv](results/collection-check-2026-11-05T0623.csv)
+Using test results file: [results/collection-check-2026-11-06T0623.csv](results/collection-check-2026-11-06T0623.csv)
 
 
 
-## Child height and weight
-Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://fingertips.phe.org.uk/static-reports/obesity-physical-activity-nutrition/national-child-measurement-programme-2024-2025-academic-year.html](https://fingertips.phe.org.uk/static-reports/obesity-physical-activity-nutrition/national-child-measurement-programme-2024-2025-academic-year.html)
-
-
-
-## Education statistics
-Page: [https://data.gov.uk/collections/early-years/education-statistics](https://data.gov.uk/collections/early-years/education-statistics)
+## Childhood vaccinations
+Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=](https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=)
+- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
 
 
 
