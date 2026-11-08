@@ -13,7 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-11-07T0621.csv](results/collection-check-2026-11-07T0621.csv)
+Using test results file: [results/collection-check-2026-11-08T0621.csv](results/collection-check-2026-11-08T0621.csv)
 
 
-No issues reported
+
+## Early years health indicators
+Page: [https://data.gov.uk/collections/early-years/early-years-health-indicators](https://data.gov.uk/collections/early-years/early-years-health-indicators)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://fingertips.phe.org.uk/profile/guidance/supporting-information/api](https://fingertips.phe.org.uk/profile/guidance/supporting-information/api)
+
+
+
