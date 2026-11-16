@@ -13,23 +13,31 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-11-15T0620.csv](results/collection-check-2026-11-15T0620.csv)
+Using test results file: [results/collection-check-2026-11-16T0635.csv](results/collection-check-2026-11-16T0635.csv)
 
 
 
-## Early years health indicators
-Page: [https://data.gov.uk/collections/early-years/early-years-health-indicators](https://data.gov.uk/collections/early-years/early-years-health-indicators)
+## Childhood vaccinations
+Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
 
 
             
 
 The following links were not reachable during test
 
-- [https://fingertips.phe.org.uk/static-reports/health-trends-in-england/England/overview.html](https://fingertips.phe.org.uk/static-reports/health-trends-in-england/England/overview.html)
+- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
 
-- [https://fingertips.phe.org.uk/profiles](https://fingertips.phe.org.uk/profiles)
 
-- [https://fingertips.phe.org.uk/profile/guidance/supporting-information/api](https://fingertips.phe.org.uk/profile/guidance/supporting-information/api)
+
+## Legislation
+Page: [https://data.gov.uk/collections/government-and-parliament/legislation](https://data.gov.uk/collections/government-and-parliament/legislation)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://legislation.github.io/data-documentation/api/overview.html](https://legislation.github.io/data-documentation/api/overview.html)
 
 
 
