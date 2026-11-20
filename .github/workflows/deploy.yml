@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'application/**'
-      - 'scripts/**'
       - 'docker/**'
   workflow_dispatch:
 
