@@ -1,5 +1,5 @@
 import csv
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote, urlparse, urlunparse
@@ -32,13 +32,15 @@ def get_page_hrefs(page) -> set[str]:
     )
 
 
-def check_reachable(page, url: str) -> bool:
-    """Navigate to a URL and return True if the page loaded"""
+def check_status(page, url: str) -> tuple[int | None, str | None]:
+    """Navigate to a URL and return (HTTP status, error message)"""
     try:
         resp = page.goto(url, wait_until="domcontentloaded", timeout=15000)
-        return resp is not None
-    except Exception:
-        return False
+    except Exception as exc:
+        return None, str(exc).splitlines()[0]
+    if resp is None:
+        return None, "no response"
+    return resp.status, None
 
 
 def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int = 0):
@@ -63,17 +65,18 @@ def check_collection_pages(rows: list[dict], headed: bool = False, slow_mo: int 
                 click.echo(f"Could not load page: {exc}", err=True)
                 for row in slug_rows:
                     row["on-page"] = None
-                    row["reachable"] = None
+                    row["status"] = None
+                    row["error"] = None
                 continue
 
             for row in slug_rows:
                 url = normalize_url(row["link-url"])
                 row["on-page"] = url in hrefs
 
-            # Check reachability in a separate browser tab
+            # Check link status in a separate browser tab
             check_page = context.new_page()
             for row in slug_rows:
-                row["reachable"] = check_reachable(check_page, row["link-url"])
+                row["status"], row["error"] = check_status(check_page, row["link-url"])
             check_page.close()
 
         browser.close()
@@ -103,8 +106,13 @@ def check_urls(input_path, headed, slow_mo):
     click.echo(f"Checking {len(rows)} URLs across collection pages...")
     check_collection_pages(rows, headed=headed, slow_mo=slow_mo if headed else 0)
 
-    reachable = sum(1 for r in rows if r.get("reachable") is True)
-    click.echo(f"Results: {reachable}/{len(rows)} reachable")
+    status_counts = Counter(
+        r.get("status") or ("error" if r.get("error") else "skipped") for r in rows
+    )
+    click.echo(
+        "Status: "
+        + ", ".join(f"{k}: {v}" for k, v in sorted(status_counts.items(), key=str))
+    )
 
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M")
     output_path = RESULTS_DIR / f"collection-check-{timestamp}.csv"

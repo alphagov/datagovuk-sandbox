@@ -242,7 +242,7 @@ To trigger a manual run, use the Actions tab in GitHub.
 # Pull collection URLs from the datagovuk_find repo
 uv run python -m scripts.cli get-collection-urls
 
-# Check each URL is reachable and on the correct page
+# Check each URL's HTTP status and that it's on the correct page
 uv run python -m scripts.cli check-urls
 
 # Flag URLs with missing link text
@@ -261,4 +261,5 @@ Results land in `testing/results/collection-check-<timestamp>.csv`:
 | `link-text` | Display text for the link |
 | `type` | `website`, `api`, or `dataset` |
 | `on-page` | Whether the URL appeared as a link on the collection page |
-| `reachable` | Whether the URL loaded successfully in the browser |
+| `status` | HTTP status code of the final response (e.g. `200`, `404`, `429`, `503`) |
+| `error` | Reason when no response was received (e.g. timeout, DNS failure) |
