@@ -28,9 +28,6 @@ dev = [
 ]
 
 
-[tool.ruff]
-exclude = ["scripts/restore-ckan-db.py"]
-
 [tool.ruff.lint]
 extend-select = ["I"]
 
