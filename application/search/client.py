@@ -24,7 +24,9 @@ def get_client():
             "AWS credentials and AWS_REGION are required to sign OpenSearch "
             "requests. Locally any dummy values work (see compose.yaml)."
         )
-    auth = Urllib3AWSV4SignerAuth(credentials, region, "es")  # es means managed Opensearch
+    auth = Urllib3AWSV4SignerAuth(
+        credentials, region, "es"
+    )  # es means managed Opensearch
 
     use_ssl = url.startswith("https://")
     return OpenSearch(
